@@ -56,7 +56,8 @@ public class FreeMarkerConfig {
         FreeMarkerViewResolver resolver = new FreeMarkerViewResolver();
         resolver.setCache(false);
         resolver.setViewClass(org.springframework.web.servlet.view.freemarker.FreeMarkerView.class);
-        resolver.setRequestContextAttribute("re");
+        //也可以在配置中引入
+        resolver.setRequestContextAttribute("ctx");
         resolver.setExposeRequestAttributes(true);
         resolver.setExposeSessionAttributes(true);
         return resolver;

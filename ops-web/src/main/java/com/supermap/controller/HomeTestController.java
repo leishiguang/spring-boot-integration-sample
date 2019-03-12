@@ -10,16 +10,16 @@ import java.util.List;
 @Controller
 public class HomeTestController {
 
-    @RequestMapping("/homeweb")
+    @RequestMapping("/webhome")
     public String home(ModelMap modelMap) {
 
-        modelMap.put("name", "Magical Sam");
+        modelMap.put("name", "Hello Web");
 
         List<String> list = new ArrayList<>();
-        list.add("sam a");
-        list.add("sam b");
-        list.add("sam c");
-        list.add("sam d");
+        list.add("web a");
+        list.add("web b");
+        list.add("web c");
+        list.add("web d");
         modelMap.put("list", list);
 
         return "homeweb";

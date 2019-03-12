@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>layuiDemo</title>
-    <link rel="stylesheet" href="../layui/dist/css/layui.css?t=1551352891272" media="all">
+    <link rel="stylesheet" href="${ctx.contextPath}/plugin/layui/css/layui.css" media="all">
     <style>
         body{margin: 10px;}
         .demo-carousel{height: 200px; line-height: 200px; text-align: center;}
@@ -62,21 +62,21 @@
 <blockquote class="layui-elem-quote layui-quote-nm layui-hide" id="footer">layui {{ layui.v }} 提供强力驱动</blockquote>
 
 
-<script src="../layui/dist/layui.js?t=1551352891272"></script>
+<script src="${ctx.contextPath}/plugin/layui/layui.js"></script>
 <script>
     layui.config({
         version: '1551352891272' //为了更新 js 缓存，可忽略
     });
 
     layui.use(['laydate', 'laypage', 'layer', 'table', 'carousel', 'upload', 'element', 'slider'], function(){
-        var laydate = layui.laydate //日期
+        let laydate = layui.laydate //日期
             ,laypage = layui.laypage //分页
             ,layer = layui.layer //弹层
             ,table = layui.table //表格
             ,carousel = layui.carousel //轮播
             ,upload = layui.upload //上传
             ,element = layui.element //元素操作
-            ,slider = layui.slider //滑块
+            ,slider = layui.slider; //滑块
 
         //向世界问个好
         layer.msg('Hello World');
@@ -92,7 +92,7 @@
         table.render({
             elem: '#demo'
             ,height: 420
-            ,url: '/demo/table/user/' //数据接口
+            ,url: '/layuidemo/table/user/' //数据接口
             ,title: '用户表'
             ,page: true //开启分页
             ,toolbar: 'default' //开启工具栏，此处显示默认图标，可以自定义模板，详见文档
@@ -114,7 +114,7 @@
 
         //监听头工具栏事件
         table.on('toolbar(test)', function(obj){
-            var checkStatus = table.checkStatus(obj.config.id)
+            let checkStatus = table.checkStatus(obj.config.id)
                 ,data = checkStatus.data; //获取选中的数据
             switch(obj.event){
                 case 'add':
@@ -136,13 +136,13 @@
                         layer.msg('删除');
                     }
                     break;
-            };
+            }
         });
 
         //监听行工具事件
         table.on('tool(test)', function(obj){ //注：tool 是工具条事件名，test 是 table 原始容器的属性 lay-filter="对应的值"
-            var data = obj.data //获得当前行数据
-                ,layEvent = obj.event; //获得 lay-event 对应的值
+            //let data = obj.data; //获得当前行数据
+            let layEvent = obj.event; //获得 lay-event 对应的值
             if(layEvent === 'detail'){
                 layer.msg('查看操作');
             } else if(layEvent === 'del'){
@@ -166,7 +166,7 @@
         });
 
         //将日期直接嵌套在指定容器中
-        var dateIns = laydate.render({
+        let dateIns = laydate.render({
             elem: '#laydateDemo'
             ,position: 'static'
             ,calendar: true //是否开启公历重要节日
@@ -175,12 +175,12 @@
                 ,'2018-08-28': '新版'
                 ,'2018-10-08': '神秘'
             }
-            ,done: function(value, date, endDate){
-                if(date.year == 2017 && date.month == 11 && date.date == 30){
+            ,done: function(value, date){
+                if(date.year === 2017 && date.month === 11 && date.date === 30){
                     dateIns.hint('一不小心就月底了呢');
                 }
             }
-            ,change: function(value, date, endDate){
+            ,change: function(value){
                 layer.msg(value)
             }
         });
@@ -213,7 +213,7 @@
         });
 
         //底部信息
-        var footerTpl = lay('#footer')[0].innerHTML;
+        let footerTpl = lay('#footer')[0].innerHTML;
         lay('#footer').html(layui.laytpl(footerTpl).render({}))
             .removeClass('layui-hide');
     });

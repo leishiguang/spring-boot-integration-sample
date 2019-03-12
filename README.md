@@ -8,19 +8,23 @@
 
 
 ## 功能说明
+
 - 项目目前拥有……
 
 ## 工程目录结构
 
-- ops-web: 程序运行入口，包含 config、properties、yml、test等；
-- ops-sys: 系统框架，如登录、用户管理、监控等；
+- ops-web: 程序运行入口，包含 config、properties、yml、测试组件等；
+- ops-sys: 系统框架，如登录、用户管理、监控等，也包含 LayUI 和其它一些前端组件；
 - ops-core: 通用组件与核心组件，如 Util 工具包、异常类、中间件等；
 - ops-work: 具体业务逻辑，如清理登簿、执行 sql 查询规则、导出数据等； 
 
 
 ## 更新说明
 
+
 ## 启动说明
+
+- 从根目录 pom.xml 导入 Maven 包，通过 ops-web 子包中的 Application 即可直接启动项目
 
 ## ps
 

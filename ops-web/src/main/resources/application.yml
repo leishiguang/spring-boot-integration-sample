@@ -1,5 +1,10 @@
 server:
   port: 8081
-spring:
-  freemarker:
-    request-context-attribute: ctx
+# freemarker全局变量
+# spring:
+#  freemarker:
+#    request-context-attribute: ctx
+logging:
+  level:
+    root: INFO
+    com.supermap: DEBUG

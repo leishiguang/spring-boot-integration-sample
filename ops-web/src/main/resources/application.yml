@@ -11,7 +11,30 @@ logging:
   level:
     root: INFO
     com.supermap: DEBUG
+    mybatis.mapper: TRACE
   file: ./logs/ops-log.log
 
 # 开发时候可以配置为 true 以获取更多日志信息
 debug: true
+
+#************H2  Begin****************
+#db schema
+spring:
+  datasource:
+    schema: classpath:db/schema.sql
+    data: classpath:db/data.sql
+    url: jdbc:h2:mem:h2test
+    platform: h2
+    username: sa
+    password:
+    driverClassName: org.h2.Driver
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      settings:
+        trace: false
+        web-allow-others: false
+
+
+

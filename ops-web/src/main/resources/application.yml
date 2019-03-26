@@ -15,19 +15,21 @@ logging:
   file: ./logs/ops-log.log
 
 # 开发时候可以配置为 true 以获取更多日志信息
-debug: true
+debug: false
 
 #************H2  Begin****************
-#db schema
 spring:
   datasource:
-    schema: classpath:db/schema.sql
-    data: classpath:db/data.sql
-    url: jdbc:h2:mem:h2test
-    platform: h2
-    username: sa
-    password:
-    driverClassName: org.h2.Driver
+    ## master 数据源
+    master:
+      #schema: classpath:db/schema-h2.sql
+      #data: classpath:db/data-h2.sql
+      jdbc-url: jdbc:h2:mem:h2test
+      platform: h2
+      username: sa
+      password:
+      driver-class-name: org.h2.Driver
+  ## 自动装载 h2 数据库
   h2:
     console:
       enabled: true
@@ -35,6 +37,13 @@ spring:
       settings:
         trace: false
         web-allow-others: false
+#************H2  End****************
 
+#************Mybatis  Begin****************
+#mybatis:
+#  type-aliases-package: com.supermap.entity
+#  mapper-locations: classpath*:mapper/*.xml
+#  check-config-location: true
+#************Mybatis  End****************
 
 

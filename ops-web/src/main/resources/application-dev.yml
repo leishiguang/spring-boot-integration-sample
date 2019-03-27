@@ -8,9 +8,6 @@ spring:
         trace: false
         web-allow-others: true
   #************ H2  End ****************
-  datasource:
-    master:
-      url: jdbc:h2:file:D:\Code\database
 
 # 日志信息，默认输出控制台
 # 日志级别：TRACE < DEBUG < INFO < WARN < ERROR < FATAL
@@ -24,17 +21,26 @@ logging:
 # 开发时候可以配置为 true 以获取更多日志信息
 debug: true
 
+######## 一些默认的配置 ######
+  # 开发、测试环境：master数据库（h2)数据源的url：jdbc:h2:file:./db/h2/database-dev
+  # 生产环境：master数据库（h2)数据源的url：jdbc:h2:file:./db/h2/database-product
+  # 密码：内部加密
+  # master 数据库建库语句所在目录：db/master/migration
+
 ####### 其它一些无关的，可能会用到的 #######
+  # 已经在配置中将 ctx 默认为全局变量
+  # freemarker全局变量
+  # spring:
+  #  freemarker:
+  #    request-context-attribute: ctx
 
-# freemarker全局变量
-# spring:
-#  freemarker:
-#    request-context-attribute: ctx
-
-# master 数据源（ h2 数据库连接方式）
-    # url有以下几种形式:
-    # jdbc:h2:E:*/database 会持久化到磁盘文件，但是是单连接
-    # jdbc:h2:tcp://IP/database 通过远程连接的方式，需要启动 h2 数据库
-    # jdbc:h2:mem:database 直接在内存中，程序只要重启就会消失
-    # jdbc-url: jdbc:h2:file:D:\Code\database
-    # url: jdbc:h2:mem:h2test
+  # master 数据源（ h2 数据库连接方式）
+  # url有以下几种形式:
+  # jdbc:h2:E:*/database 会持久化到磁盘文件，但是是单连接
+  # jdbc:h2:tcp://IP/database 通过远程连接的方式，需要启动 h2 数据库
+  # jdbc:h2:mem:database 直接在内存中，程序只要重启就会消失
+  # jdbc-url: jdbc:h2:file:D:\Code\database
+  # url: jdbc:h2:mem:h2test
+  # datasource:
+  #   master:
+  #     url: jdbc:h2:file:./db/h2/database

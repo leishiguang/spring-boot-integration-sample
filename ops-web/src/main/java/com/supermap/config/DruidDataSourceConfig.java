@@ -13,24 +13,18 @@ import java.sql.SQLException;
 @Slf4j
 @Configuration
 public class DruidDataSourceConfig {
-    @Value("${spring.datasource.master.url}")
-    private String url;
-    /*@Value("${spring.datasource.master.username}")
-    private String username;
-    @Value("${spring.datasource.master.password}")
-    private String password;
-    @Value("${spring.datasource.master.driver-class-name}")
-    private String driverClass;*/
+    @Value("${spring.profiles.active}")
+    private String debugType;
 
     @Bean(name = "masterDataSource")
     @Qualifier("masterDataSource")
-    public DataSource masterDataSource(){
-        //log.info("url is" + url);
+    public DataSource masterDataSource() {
+        String url = "dev".equals(debugType) ? "jdbc:h2:file:./db/h2/database-dev" : "jdbc:h2:file:./db/h2/database-product";
         String driverClass = "org.h2.Driver";
-        String username = "ops-h2";
-        String password = "ops-h2";
+        String username = "opsmaster";
+        String password = "masterdatasource";
         DruidDataSource druidDataSource = new DruidDataSource();
-        druidDataSource.setUrl(this.url);
+        druidDataSource.setUrl(url);
         druidDataSource.setUsername(username);
         druidDataSource.setPassword(password);
         druidDataSource.setDriverClassName(driverClass);
@@ -59,14 +53,13 @@ public class DruidDataSourceConfig {
         //druidDataSource.setConnectProperties(this.connectionProperties);
         //合并多个DruidDataSource的监控数据
         druidDataSource.setUseGlobalDataSourceStat(true);
-        try{
+        try {
             //配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
             druidDataSource.setFilters("stat,wall");
-        }catch (SQLException e){
+        } catch (SQLException e) {
             log.error("druid configuration initialization filter", e);
-            //System.err.println("druid configuration initialization filter");
         }
-        return  druidDataSource;
+        return druidDataSource;
     }
 
 }

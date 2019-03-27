@@ -31,5 +31,4 @@ public class FlywayConfig {
                 .locations("filesystem:db/master/migration")
                 .load();
     }
-
 }

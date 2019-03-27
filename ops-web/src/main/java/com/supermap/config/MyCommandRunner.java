@@ -32,6 +32,7 @@ public class MyCommandRunner implements CommandLineRunner {
     }
 
     private void initMasterDataBase()throws FlywayException{
+
         try{
             masterFlyway.migrate();
         }catch (FlywayException flywayException){
@@ -41,10 +42,10 @@ public class MyCommandRunner implements CommandLineRunner {
                 masterFlyway.migrate();
                 log.warn("已完成 master 数据库的重新初始化。");
             }else {
-                log.error("初始化 master 数据库失败",flywayException);
+                log.error("数据库迁移文件与生产环境不匹配且无法自动完成升级",flywayException);
                 throw flywayException;
             }
         }
-        log.info("已初始化 master 数据源");
+        log.info("已完成 master 数据源初始化");
     }
 }

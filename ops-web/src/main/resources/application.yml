@@ -17,33 +17,24 @@ logging:
 # 开发时候可以配置为 true 以获取更多日志信息
 debug: false
 
-#************H2  Begin****************
 spring:
   datasource:
     ## master 数据源
+    # url有以下几种形式:
+    # jdbc:h2:E:*/database 会持久化到磁盘文件，但是是单连接
+    # jdbc:h2:tcp://IP/database 通过远程连接的方式，需要启动 h2 数据库
+    # jdbc:h2:mem:database 直接在内存中，程序只要重启就会消失
     master:
-      #schema: classpath:db/schema-h2.sql
-      #data: classpath:db/data-h2.sql
-      jdbc-url: jdbc:h2:mem:h2test
-      platform: h2
-      username: sa
-      password:
-      driver-class-name: org.h2.Driver
-  ## 自动装载 h2 数据库
+      #url: jdbc:h2:mem:h2test
+      url: jdbc:h2:file:D:\Code\database
+      #jdbc-url: jdbc:h2:file:D:\Code\database
+
+  #************ H2  Begin ****************
   h2:
     console:
       enabled: true
       path: /h2-console
       settings:
         trace: false
-        web-allow-others: false
-#************H2  End****************
-
-#************Mybatis  Begin****************
-#mybatis:
-#  type-aliases-package: com.supermap.entity
-#  mapper-locations: classpath*:mapper/*.xml
-#  check-config-location: true
-#************Mybatis  End****************
-
-
+        web-allow-others: true
+  #************ H2  End ****************

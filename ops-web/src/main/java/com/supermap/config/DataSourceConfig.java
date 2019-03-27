@@ -11,14 +11,14 @@ import javax.sql.DataSource;
 
 @Configuration
 public class DataSourceConfig {
-
-
-    //此处使用自动装配的 H2 数据源,可自定义数据源
+    /**
+     * 如果采用此装配，配置文件中的 url: jdbc:h2:mem:h2test 需要改成 jdbc-url: jdbc:h2:mem:h2test
+     */
     @Bean("masterDS")
     @Qualifier("masterDS")
     @ConfigurationProperties(prefix = "spring.datasource.master")
     public DataSource dataSourceMaster() {
-        //return new DataSourceProperties().initializeDataSourceBuilder().build();
         return DataSourceBuilder.create().build();
     }
+
 }

@@ -1,0 +1,26 @@
+spring:
+  #************ H2  Begin ***************
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      settings:
+        trace: false
+        web-allow-others: false
+  #************ H2  End ****************
+  datasource:
+    master:
+      url: jdbc:h2:file:D:\Code\database
+
+# 日志信息，默认输出控制台
+# 日志级别：TRACE < DEBUG < INFO < WARN < ERROR < FATAL
+logging:
+  level:
+    root: INFO
+    com.supermap: DEBUG
+    mybatis.mapper: INFO
+  file: ./logs/ops-log.log
+
+# 开发时候可以配置为 true 以获取更多日志信息
+debug: false
+

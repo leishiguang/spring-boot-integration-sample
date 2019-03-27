@@ -25,6 +25,7 @@ public class DruidDataSourceConfig {
     @Bean(name = "masterDataSource")
     @Qualifier("masterDataSource")
     public DataSource masterDataSource(){
+        //log.info("url is" + url);
         String driverClass = "org.h2.Driver";
         String username = "ops-h2";
         String password = "ops-h2";

@@ -5,6 +5,9 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
+/**
+ * 工具类：根据name、class获取bean对象
+ */
 @Component
 public class SpringUtil implements ApplicationContextAware {
 
@@ -17,7 +20,7 @@ public class SpringUtil implements ApplicationContextAware {
         }
     }
 
-    public static ApplicationContext getApplicationContext() {
+    private static ApplicationContext getApplicationContext() {
         return applicationContext;
     }
 

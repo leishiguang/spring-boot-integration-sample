@@ -14,7 +14,7 @@
         <module>ops-core</module>
         <module>ops-sys</module>
         <module>ops-web</module>
-        <module>opt-work</module>
+        <module>ops-work</module>
     </modules>
 
     <parent>
@@ -132,7 +132,7 @@
             </dependency>
             <dependency>
                 <groupId>com.supermap</groupId>
-                <artifactId>opt-work</artifactId>
+                <artifactId>ops-work</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
         </dependencies>

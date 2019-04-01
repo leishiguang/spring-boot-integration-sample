@@ -3,4 +3,4 @@
 
 
 
-insert into city (name, state, country) values ('RoutGo', 'CA', 'US');
+insert into city (name, state, country) values ('RoutGo', 'CB', 'US');

@@ -15,8 +15,13 @@ import java.util.List;
 @RequestMapping("/syshome")
 public class SysTestController {
 
+    private final CityMapper cityMapper;
+
     @Autowired
-    CityMapper cityMapper;
+    public SysTestController(CityMapper cityMapper) {
+        this.cityMapper = cityMapper;
+    }
+
     /**
      * freemarker Demo
      * 模板文件在 ops-web 包中

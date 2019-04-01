@@ -1,4 +1,4 @@
-package com.supermap.mapper;
+package com.supermap.mapper.master;
 
 import com.supermap.model.City;
 import org.apache.ibatis.annotations.Mapper;

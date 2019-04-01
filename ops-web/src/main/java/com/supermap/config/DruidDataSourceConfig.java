@@ -15,6 +15,10 @@ import java.sql.SQLException;
 public class DruidDataSourceConfig {
     @Value("${spring.profiles.active}")
     private String debugType;
+    @Value("${ops.work.bdck.database.url}")
+    private String bdckDatabaseUrl;
+    @Value("${ops.work.bdck.database.password}")
+    private String bdckDatabasePassword;
 
     @Bean(name = "masterDataSource")
     @Qualifier("masterDataSource")
@@ -23,11 +27,28 @@ public class DruidDataSourceConfig {
         String driverClass = "org.h2.Driver";
         String username = "opsmaster";
         String password = "masterdatasource";
-        DruidDataSource druidDataSource = new DruidDataSource();
+        DruidDataSource druidDataSource = this.initDefaultDruidDataSource();
         druidDataSource.setUrl(url);
         druidDataSource.setUsername(username);
         druidDataSource.setPassword(password);
         druidDataSource.setDriverClassName(driverClass);
+        return druidDataSource;
+    }
+
+    @Bean(name = "bdckDataSource")
+    @Qualifier("bdckDataSource")
+    public DataSource bdckDataSource() {
+        String url = "jdbc..."+bdckDatabaseUrl;
+        DruidDataSource druidDataSource = this.initDefaultDruidDataSource();
+        druidDataSource.setUrl(url);
+        druidDataSource.setUsername("bdck");
+        druidDataSource.setPassword(bdckDatabasePassword);
+        druidDataSource.setDriverClassName("driverclass");
+        return druidDataSource;
+    }
+
+    private DruidDataSource initDefaultDruidDataSource(){
+        DruidDataSource druidDataSource = new DruidDataSource();
         //连接池初始化连接数量
         druidDataSource.setInitialSize(5);
         //连接池最大活跃连接数
@@ -61,5 +82,6 @@ public class DruidDataSourceConfig {
         }
         return druidDataSource;
     }
+
 
 }

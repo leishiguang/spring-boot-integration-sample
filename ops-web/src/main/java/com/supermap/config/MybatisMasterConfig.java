@@ -12,9 +12,11 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 
 import javax.sql.DataSource;
 
-
+/**
+ * 运维工具 master 数据源的配置类
+ */
 @Configuration
-@MapperScan(basePackages = "com.supermap.mapper", sqlSessionFactoryRef = "masterSqlSessionFactory")
+@MapperScan(basePackages = "com.supermap.mapper.master", sqlSessionFactoryRef = "masterSqlSessionFactory")
 public class MybatisMasterConfig {
 
     private final DataSource masterDataSource;

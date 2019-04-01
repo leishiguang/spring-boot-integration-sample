@@ -1,0 +1,13 @@
+{
+  "properties": [
+    {
+      "name": "ops.work.bdck.database.url",
+      "type": "java.lang.String",
+      "description": "不动产库的连接url参数，如：127.0.0.1:1521."
+    },
+    {
+      "name": "ops.work.bdck.database.password",
+      "type": "java.lang.String",
+      "description": "不动产库的连接密码，如：password."
+    }
+  ] }

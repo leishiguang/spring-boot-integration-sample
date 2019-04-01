@@ -1,6 +1,6 @@
 package com.supermap.controller;
 
-import com.supermap.mapper.CityMapper;
+import com.supermap.mapper.master.CityMapper;
 import com.supermap.model.City;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

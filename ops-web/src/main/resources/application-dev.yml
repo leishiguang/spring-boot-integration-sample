@@ -26,8 +26,27 @@ jasypt:
   test:
     encryptd1: lalalalala
     encryptd2: OPTENC(NKXN0vwQydF9p3ObWUw7iHUXXOvnz6gh)
-    text1: thisIsText1
-    text2: canyouseeme
+    text: canyouseeme
+
+## 需要暴露的配置项、是否加密
+property:
+  items:
+    - name: server.port
+      value: 8081
+      command: 服务的端口号
+      encrypt: false
+    - name: spring.profiles.active
+      value: dev
+      command: 测试环境配置为（dev）、生产环境配置为（product）
+      encrypt: false
+    - name: ops.work.bdck.database.url
+      value: 127.0.0.1:1521
+      command: bdck的数据库ip与端口（如：127.0.0.1:1521）
+      encrypt: true
+    - name: ops.work.bdck.database.password
+      value: password
+      command: bdck的数据库密码（如：password）
+      encrypt: true
 
   ######## 一些默认的配置 ######
   # 开发、测试环境：master数据库（h2)数据源的url：jdbc:h2:file:./db/h2/database-dev

@@ -9,5 +9,10 @@
       "name": "ops.work.bdck.database.password",
       "type": "java.lang.String",
       "description": "不动产库的连接密码，如：password."
+    },
+    {
+      "name": "property.items",
+      "type": "java.util.List<com.supermap.model.PropertyItems>",
+      "description": "要暴露给运维人员的可配置项."
     }
   ] }

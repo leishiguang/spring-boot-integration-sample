@@ -16,7 +16,7 @@ public class JasyptEncryptableDetector implements EncryptablePropertyDetector {
      * 密文后缀
      */
     private final String suffix = ")";
-z
+
     @Override
     public boolean isEncrypted(String property) {
         if (property == null) {

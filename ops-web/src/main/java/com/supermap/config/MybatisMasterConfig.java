@@ -1,5 +1,6 @@
 package com.supermap.config;
 
+import com.alibaba.druid.pool.DruidDataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -22,7 +23,7 @@ public class MybatisMasterConfig {
     private final DataSource masterDataSource;
 
     @Autowired
-    public MybatisMasterConfig(@Qualifier("masterDataSource") DataSource masterDataSource) {
+    public MybatisMasterConfig(@Qualifier("masterDataSource") DruidDataSource masterDataSource) {
         this.masterDataSource = masterDataSource;
     }
 

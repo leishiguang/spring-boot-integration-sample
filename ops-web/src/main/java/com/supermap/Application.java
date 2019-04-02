@@ -14,6 +14,6 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 public class Application {
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
-        System.out.println("Server start success");
+        System.out.println("Server start success.");
     }
 }

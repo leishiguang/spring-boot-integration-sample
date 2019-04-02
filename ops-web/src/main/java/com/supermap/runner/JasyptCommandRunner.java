@@ -42,13 +42,14 @@ public class JasyptCommandRunner implements CommandLineRunner {
     }
 
     private void test() {
+        log.debug("开始：加解密的验证 --------------");
         Environment env = appCtx.getEnvironment();
         log.debug("env.getProperty -------------------");
         log.debug("jasypt.test.encryptd1 : {}", env.getProperty("jasypt.test.encryptd1"));
         try{
             log.debug("jasypt.test.encryptd2 : {}", env.getProperty("jasypt.test.encryptd2"));
         }catch (Exception e){
-            log.error("读取密文发生错误，比如：未获取解密 bean",e);
+            log.error("读取密文发生错误",e);
         }
         log.debug("jasypt.test.text1 :{}", env.getProperty("jasypt.test.text1"));
         log.debug("jasypt.test.text2 : {}", env.getProperty("jasypt.test.text2"));
@@ -56,6 +57,6 @@ public class JasyptCommandRunner implements CommandLineRunner {
         String encryptedText1 = encryptor.encrypt(env.getProperty("jasypt.test.text1"));
         log.debug("encrypted text1 : {}", encryptedText1);
         log.debug("encrypted text1 : {}", encryptor.decrypt(encryptedText1));
-        log.debug("Done!");
+        log.debug("已完成：加解密的验证 --------------!");
     }
 }

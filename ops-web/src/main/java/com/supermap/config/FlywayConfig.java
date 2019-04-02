@@ -1,13 +1,9 @@
 package com.supermap.config;
-
-import com.alibaba.druid.pool.DruidDataSource;
 import org.flywaydb.core.Flyway;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import javax.sql.DataSource;
 
 /**
  * flyway 的配置类，使用 masterDataSource 的url、username、password；
@@ -16,19 +12,20 @@ import javax.sql.DataSource;
 @AutoConfigureAfter({DruidDataSourceConfig.class,MybatisMasterConfig.class})
 public class FlywayConfig {
 
-    private final DataSource masterDataSource;
-
-    @Autowired
-    public FlywayConfig(DataSource masterDataSource) {
-        this.masterDataSource = masterDataSource;
-    }
+    @Value("#{masterDataSource.getUrl()}")
+    private String masterDbUrl;
+    @Value("#{masterDataSource.getUsername()}")
+    private String masterDbUsername;
+    @Value("#{masterDataSource.getPassword()}")
+    private String masterDbPassword;
+    @Value("filesystem:db/master/migration")
+    private String masterDbLocation;
 
     @Bean("masterFlyway")
     public Flyway masterFlyway(){
-        DruidDataSource masterDataSource = (DruidDataSource) this.masterDataSource;
         return Flyway.configure()
-                .dataSource(masterDataSource.getUrl(), masterDataSource.getUsername(), masterDataSource.getPassword())
-                .locations("filesystem:db/master/migration")
+                .dataSource(masterDbUrl, masterDbUsername, masterDbPassword)
+                .locations(masterDbLocation)
                 .load();
     }
 }

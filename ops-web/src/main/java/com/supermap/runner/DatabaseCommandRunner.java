@@ -38,6 +38,7 @@ public class DatabaseCommandRunner implements CommandLineRunner {
      * 初始化 master 数据库
      */
     private void initMasterDataBase()throws FlywayException{
+        log.debug("开始：master 数据源自动升级 ---------");
         try{
             masterFlyway.migrate();
         }catch (FlywayException flywayException){
@@ -51,6 +52,6 @@ public class DatabaseCommandRunner implements CommandLineRunner {
                 throw flywayException;
             }
         }
-        log.info("已完成 master 数据源初始化");
+        log.info("已完成：master 数据源初始化 ---------!");
     }
 }

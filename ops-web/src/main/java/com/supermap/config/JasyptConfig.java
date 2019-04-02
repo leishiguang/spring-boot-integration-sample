@@ -1,6 +1,5 @@
 package com.supermap.config;
 
-
 import com.ulisesbocchio.jasyptspringboot.EncryptablePropertyDetector;
 import com.ulisesbocchio.jasyptspringboot.annotation.EnableEncryptableProperties;
 import lombok.extern.slf4j.Slf4j;
@@ -45,7 +44,6 @@ public class JasyptConfig {
         return this.stringEncryptor();
     }
 
-
     /**
      * 自定义密文前后的关键词
      */
@@ -57,7 +55,7 @@ public class JasyptConfig {
     /**
      * 自定义密文前后的关键词
      */
-    private static class MyEncryptablePropertyDetector implements EncryptablePropertyDetector {
+    private class MyEncryptablePropertyDetector implements EncryptablePropertyDetector {
         /**
          * 密文前缀
          */

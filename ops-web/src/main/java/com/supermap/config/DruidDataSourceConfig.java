@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import javax.sql.DataSource;
 import java.sql.SQLException;
 
 @Slf4j
@@ -22,7 +21,7 @@ public class DruidDataSourceConfig {
 
     @Bean(name = "masterDataSource")
     @Qualifier("masterDataSource")
-    public DataSource masterDataSource() {
+    public DruidDataSource masterDataSource() {
         String url = "dev".equals(debugType) ? "jdbc:h2:file:./db/h2/database-dev" : "jdbc:h2:file:./db/h2/database-product";
         String driverClass = "org.h2.Driver";
         String username = "opsmaster";
@@ -37,7 +36,7 @@ public class DruidDataSourceConfig {
 
     @Bean(name = "bdckDataSource")
     @Qualifier("bdckDataSource")
-    public DataSource bdckDataSource() {
+    public DruidDataSource bdckDataSource() {
         String url = "jdbc..."+bdckDatabaseUrl;
         DruidDataSource druidDataSource = this.initDefaultDruidDataSource();
         druidDataSource.setUrl(url);
@@ -47,6 +46,9 @@ public class DruidDataSourceConfig {
         return druidDataSource;
     }
 
+    /**
+     * 生成默认的数据源配置
+     */
     private DruidDataSource initDefaultDruidDataSource(){
         DruidDataSource druidDataSource = new DruidDataSource();
         //连接池初始化连接数量

@@ -1,4 +1,4 @@
-package com.supermap.config;
+package com.supermap.runner;
 
 import lombok.extern.slf4j.Slf4j;
 import org.flywaydb.core.Flyway;
@@ -6,15 +6,18 @@ import org.flywaydb.core.api.FlywayException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 
 /**
- * Spring-boot 启动之后，程序自动运行，用于启动后的初始化
+ * Spring-boot 启动之后，程序自动运行，用于启动后的初始化。
+ * 本例，初始化数据库
  */
 @Slf4j
 @Component
-public class MyCommandRunner implements CommandLineRunner {
+@Order(value = 1)
+public class DatabaseCommandRunner implements CommandLineRunner {
 
     private final Flyway masterFlyway;
 
@@ -22,17 +25,19 @@ public class MyCommandRunner implements CommandLineRunner {
     private String debugType;
 
     @Autowired
-    public MyCommandRunner(Flyway masterFlyway) {
+    public DatabaseCommandRunner(Flyway masterFlyway) {
         this.masterFlyway = masterFlyway;
     }
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args){
         this.initMasterDataBase();
     }
 
+    /**
+     * 初始化 master 数据库
+     */
     private void initMasterDataBase()throws FlywayException{
-
         try{
             masterFlyway.migrate();
         }catch (FlywayException flywayException){

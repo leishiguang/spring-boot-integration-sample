@@ -5,8 +5,11 @@ import com.supermap.aspect.HelloMethodAspect;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * 关于Aop的案例
+ */
 @Configuration
-public class HelloConfig {
+public class HelloAopConfig {
 
     @Bean("helloMethodAspect")
     public HelloMethodAspect getHelloMethodAspect(){

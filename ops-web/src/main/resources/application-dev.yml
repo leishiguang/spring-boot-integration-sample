@@ -21,7 +21,15 @@ logging:
 # 开发时候可以配置为 true 以获取更多日志信息
 debug: true
 
-######## 一些默认的配置 ######
+# 和加密有关的测试
+jasypt:
+  test:
+    encryptd1: lalalalala
+    encryptd2: OPTENC(NKXN0vwQydF9p3ObWUw7iHUXXOvnz6gh)
+    text1: thisIsText1
+    text2: canyouseeme
+
+  ######## 一些默认的配置 ######
   # 开发、测试环境：master数据库（h2)数据源的url：jdbc:h2:file:./db/h2/database-dev
   # 生产环境：master数据库（h2)数据源的url：jdbc:h2:file:./db/h2/database-product
   # 密码：内部加密

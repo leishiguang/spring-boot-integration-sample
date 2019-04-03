@@ -21,7 +21,7 @@ public class FlywayConfig {
     private String masterDbUsername;
     @Value("#{masterDataSource.getPassword()}")
     private String masterDbPassword;
-    @Value("filesystem:db/master/migration")
+    @Value("classpath:db/migration/master")
     private String masterDbLocation;
 
     @Bean("masterFlyway")

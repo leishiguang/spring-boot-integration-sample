@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
+import org.springframework.core.io.FileSystemResource;
 import java.sql.SQLException;
 
 /**
@@ -18,19 +18,34 @@ import java.sql.SQLException;
 @Slf4j
 @Configuration
 public class DruidDataSourceConfig {
-    @Value("${spring.profiles.active}")
-    private String debugType;
+
     @Value("${ops.work.bdck.database.url}")
     private String bdckDatabaseUrl;
     @Value("${ops.work.bdck.database.password}")
     private String bdckDatabasePassword;
-    @Value("#{ ('dev' eq '${spring.profiles.active}') && '${debug}'}")
-    private boolean isDebug;
+    @Value("${spring.profiles.active}")
+    private String activeEnvironment;
+
 
     @Bean(name = "masterDataSource")
     @Qualifier("masterDataSource")
-    public DruidDataSource masterDataSource() {
-        String url = isDebug ? "jdbc:h2:file:./db/h2/database-dev" : "jdbc:h2:file:./db/h2/database-product";
+    public DruidDataSource masterDataSource(){
+        //获取项目根目录
+        String rootPath = new FileSystemResource("db/h2").getFile().getAbsolutePath();
+        String url;
+        switch (activeEnvironment){
+            case "product":{
+                url = "jdbc:h2:file:" + rootPath + "/database-product";
+                break;
+            }
+            case "dev":{
+                url = "jdbc:h2:file:" + rootPath + "/database-dev";
+                break;
+            }
+            default:{
+                url = "jdbc:h2:file:" + rootPath + "/database-test";
+            }
+        }
         String driverClass = "org.h2.Driver";
         String username = "opsmaster";
         String password = "masterdatasource";

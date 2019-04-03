@@ -1,20 +1,30 @@
-## 生产环境的默认配置
-## 更多全局配置，在代码中进行了硬编码，详见 com.supermap.config 包
+## 测试环境，提供给生产环境做测试，或者开发时候做测试使用。
+## 测试时候，在 JVM 运行参数中增加： --spring.profiles.active=product 即可生效（注意有两个 "--"）
 
+server:
+  port: 9506
 spring:
   #************ H2  Begin ***************
   h2:
     console:
       enabled: true
       path: /h2-console
+      settings:
+        trace: true
+        web-allow-others: true
   #************ H2  End ****************
 
 # 日志信息，默认输出控制台
 # 日志级别：TRACE < DEBUG < INFO < WARN < ERROR < FATAL
 logging:
+  level:
+    root: INFO
+    com.supermap: DEBUG
+    mybatis.mapper: TRACE
   file: ./logs/ops-log.log
 
-debug: false
+# 开发时候可以配置为 true 以获取更多日志信息
+debug: true
 
 ## 需要刻意暴露的配置项、是否加密
 property:

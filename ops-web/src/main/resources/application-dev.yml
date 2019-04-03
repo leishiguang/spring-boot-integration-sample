@@ -1,3 +1,6 @@
+## 开发环境与测试环境的区别：
+## 1、在生产环境中，不应该使用开发配置，而可以使用测试环境进行
+## 2、测试环境固定了端口号
 
 spring:
   #************ H2  Begin ***************
@@ -27,12 +30,10 @@ property:
   items:
     - name: server.port
       command: 服务的端口号
-      encrypt: false
     - name: spring.profiles.active
       command: 测试环境配置为（dev）、生产环境配置为（product）
-      encrypt: false
     - name: ops.work.bdck.database.url
-      command: bdck的数据库ip与端口（如：127.0.0.1:1521）
+      command: bdck的数据库ip、端口、实例（如：127.0.0.1:1521/orcl）
       encrypt: true
     - name: ops.work.bdck.database.password
       command: bdck的数据库密码（如：password）
@@ -62,11 +63,3 @@ property:
   # datasource:
   #   master:
   #     url: jdbc:h2:file:./db/h2/database
-
-
-# 和加密有关的测试
-jasypt:
-  test:
-    encryptd1: lalalalala
-    encryptd2: OPTENC(NKXN0vwQydF9p3ObWUw7iHUXXOvnz6gh)
-    text: canyouseeme

@@ -13,6 +13,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Component;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.Properties;
@@ -117,11 +118,11 @@ public class JasyptRunner implements CommandLineRunner {
         if (file.delete()) {
             file = new File(newFilePathName);
             try (OutputStream out = new FileOutputStream(file)) {
-                out.write("## OPT配置文件\n".getBytes());
-                out.write(("## " + new Date().toString() + "\n").getBytes());
+                out.write("## OPT配置文件\n".getBytes(StandardCharsets.UTF_8));
+                out.write(("## " + new Date().toString() + "\n").getBytes(StandardCharsets.UTF_8));
                 for (PropertyItem item : propertyItems.getItems()) {
-                    out.write(("## " + item.getCommand() + "\n").getBytes());
-                    out.write((item.getName() + "=" + item.getValue() + "\n").getBytes());
+                    out.write(("## " + item.getCommand() + "\n").getBytes(StandardCharsets.UTF_8));
+                    out.write((item.getName() + "=" + item.getValue() + "\n").getBytes(StandardCharsets.UTF_8));
                 }
             }
             log.info("已完成：已替换为加密后的配置文件 ----------!");

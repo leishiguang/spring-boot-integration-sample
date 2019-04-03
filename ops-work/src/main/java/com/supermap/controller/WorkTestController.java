@@ -13,10 +13,11 @@ public class WorkTestController {
     /**
      * 这是获取日志的方式一（不推荐使用，而是使用 lombok 组件的自动注解，详见：
      */
-    private  final Logger logger = LoggerFactory.getLogger(this.getClass());
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
     @RequestMapping("/workhome")
     @ResponseBody
-    public String workHome(){
+    public String workHome() {
         logger.debug("这是 Debug 日志");
         return "Hello Work";
     }

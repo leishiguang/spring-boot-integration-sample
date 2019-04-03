@@ -11,11 +11,11 @@ public class JasyptEncryptableDetector implements EncryptablePropertyDetector {
     /**
      * 密文前缀
      */
-    private final String prefix = "OPTENC(";
+    private final static String PREFIX = "OPTENC(";
     /**
      * 密文后缀
      */
-    private final String suffix = ")";
+    private final static String SUFFIX = ")";
 
     @Override
     public boolean isEncrypted(String property) {
@@ -23,13 +23,13 @@ public class JasyptEncryptableDetector implements EncryptablePropertyDetector {
             return false;
         } else {
             String trimmedValue = property.trim();
-            return trimmedValue.startsWith(this.prefix) && trimmedValue.endsWith(this.suffix);
+            return trimmedValue.startsWith(PREFIX) && trimmedValue.endsWith(SUFFIX);
         }
     }
 
     @Override
     public String unwrapEncryptedValue(String property) {
-        return property.substring(this.prefix.length(), property.length() - this.suffix.length());
+        return property.substring(PREFIX.length(), property.length() - SUFFIX.length());
     }
 
     /**
@@ -39,7 +39,7 @@ public class JasyptEncryptableDetector implements EncryptablePropertyDetector {
         if(isEncrypted(unwrapdEncryptedValue)){
             return unwrapdEncryptedValue;
         }else {
-            return this.prefix + unwrapdEncryptedValue + this.suffix;
+            return PREFIX + unwrapdEncryptedValue + SUFFIX;
         }
     }
 

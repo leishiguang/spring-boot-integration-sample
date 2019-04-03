@@ -12,7 +12,7 @@ public class WorkTestLogController {
 
     @RequestMapping("/log")
     @ResponseBody
-    public String workHome(){
+    public String workHome() {
         log.debug("Slf4j debug 日志");
         log.info("Slf4j info 日志");
         log.error("Slf4j error 日志");

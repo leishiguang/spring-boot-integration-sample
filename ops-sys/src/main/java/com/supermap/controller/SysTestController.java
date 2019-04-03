@@ -57,7 +57,7 @@ public class SysTestController {
      */
     @RequestMapping("/dbtest")
     @ResponseBody
-    public String DbTest(){
+    public String dbTest(){
         City city1 = cityMapper.findByState("CA");
         City city3 = cityMapper.selectCityById(1);
         return city1.getCountry() + "," + city3.getCountry();

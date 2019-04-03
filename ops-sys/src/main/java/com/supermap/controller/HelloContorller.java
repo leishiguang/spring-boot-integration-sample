@@ -39,7 +39,7 @@ public class HelloContorller {
      */
     @RequestMapping("/world")
     @ResponseBody
-    @Hello(name = "world", type = Hello.Hello_TYPE.ADD)
+    @Hello(name = "world", type = Hello.HELLO_TYPE.ADD)
     public String world() {
         return "siccess";
     }

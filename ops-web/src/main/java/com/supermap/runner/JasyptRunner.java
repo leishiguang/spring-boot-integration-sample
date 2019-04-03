@@ -9,8 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Component;
+import org.springframework.util.ResourceUtils;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -37,8 +40,10 @@ public class JasyptRunner implements CommandLineRunner {
     /**
      * 注入原始文件资源
      */
-    @Value("classpath:/application.properties")
+    @Value("./config/application.properties")
     private Resource appPropertiesFile;
+
+
 
     /**
      * 读取配置中的文件
@@ -71,6 +76,9 @@ public class JasyptRunner implements CommandLineRunner {
      * 读取原始配置文件
      */
     private void readPropertiesFile() throws Exception {
+        if(appPropertiesFile == null){
+            appPropertiesFile = new FileSystemResource("");
+        }
         configProp = new Properties();
         try (InputStream in = appPropertiesFile.getInputStream()) {
             configProp.load(in);

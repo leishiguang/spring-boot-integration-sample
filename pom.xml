@@ -3,6 +3,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <!-- 版本号 -->
     <name>opsbox</name>
     <groupId>com.supermap</groupId>
     <artifactId>opsbox</artifactId>
@@ -10,6 +11,7 @@
     <packaging>pom</packaging>
     <description>Tool of operating and support</description>
 
+    <!-- 管理所有模块 -->
     <modules>
         <module>ops-core</module>
         <module>ops-sys</module>
@@ -17,6 +19,7 @@
         <module>ops-work</module>
     </modules>
 
+    <!-- 指定项目的 SpringBoot 版本-->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -24,11 +27,14 @@
         <relativePath/>
     </parent>
 
+    <!-- 指定 JDK 版本，默认为 1.6-->
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
     </properties>
 
+    <!-- 指定项目中公用的依赖 -->
     <dependencies>
         <!-- spring boot starter -->
         <dependency>
@@ -123,40 +129,30 @@
 
     </dependencies>
 
-
-
+    <!-- 指定项目中公用模块 -->
     <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>com.supermap</groupId>
                 <artifactId>ops-core</artifactId>
-                <version>0.0.1-SNAPSHOT</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.supermap</groupId>
                 <artifactId>ops-web</artifactId>
-                <version>0.0.1-SNAPSHOT</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.supermap</groupId>
                 <artifactId>ops-sys</artifactId>
-                <version>0.0.1-SNAPSHOT</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.supermap</groupId>
                 <artifactId>ops-work</artifactId>
-                <version>0.0.1-SNAPSHOT</version>
+                <version>${project.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>

@@ -14,7 +14,7 @@ import java.lang.annotation.*;
 @Inherited
 public @interface Hello {
 
-    enum Hello_TYPE {
+    enum HELLO_TYPE {
         /**
          * 测试类型1
          */
@@ -33,5 +33,5 @@ public @interface Hello {
     /**
      * 类型
      */
-    Hello_TYPE type() default Hello_TYPE.ATHOR;
+    HELLO_TYPE type() default HELLO_TYPE.ATHOR;
 }

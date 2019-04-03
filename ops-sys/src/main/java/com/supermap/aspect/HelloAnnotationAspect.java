@@ -48,7 +48,7 @@ public class HelloAnnotationAspect {
         return method.getAnnotation(Hello.class).name();
     }
 
-    private Hello.Hello_TYPE getType(JoinPoint joinPoint) {
+    private Hello.HELLO_TYPE getType(JoinPoint joinPoint) {
         MethodSignature methodName = (MethodSignature) joinPoint.getSignature();
         Method method = methodName.getMethod();
         return method.getAnnotation(Hello.class).type();

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 /**
- * 需要对外暴露的配置，可以设置默认值，设置是否加密。
+ * 需要刻意暴露的配置项、是否加密
  */
 @Data
 @Component

@@ -1,6 +1,5 @@
 package com.supermap.model;
 
-
 import lombok.Data;
 
 @Data
@@ -10,7 +9,7 @@ public class PropertyItem {
      */
     private String name;
     /**
-     * 配置默认值
+     * 配置值
      */
     private String value;
     /**
@@ -22,4 +21,13 @@ public class PropertyItem {
      */
     private boolean encrypt;
 
+    public PropertyItem(){
+
+    }
+
+    public PropertyItem(String key, String value){
+        this.name = key;
+        this.value = value;
+        this.command = key;
+    }
 }

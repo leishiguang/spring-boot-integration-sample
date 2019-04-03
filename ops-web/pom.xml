@@ -12,6 +12,7 @@
     <artifactId>ops-web</artifactId>
     <packaging>jar</packaging>
     <dependencies>
+
         <dependency>
             <groupId>com.supermap</groupId>
             <artifactId>ops-sys</artifactId>
@@ -27,6 +28,7 @@
             <artifactId>ops-work</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
+
     </dependencies>
 
 

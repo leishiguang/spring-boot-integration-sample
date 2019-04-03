@@ -18,11 +18,13 @@ public class DruidDataSourceConfig {
     private String bdckDatabaseUrl;
     @Value("${ops.work.bdck.database.password}")
     private String bdckDatabasePassword;
+    @Value("#{ ('dev' eq '${spring.profiles.active}') && '${debug}'}")
+    private boolean isDebug;
 
     @Bean(name = "masterDataSource")
     @Qualifier("masterDataSource")
     public DruidDataSource masterDataSource() {
-        String url = "dev".equals(debugType) ? "jdbc:h2:file:./db/h2/database-dev" : "jdbc:h2:file:./db/h2/database-product";
+        String url = isDebug ? "jdbc:h2:file:./db/h2/database-dev" : "jdbc:h2:file:./db/h2/database-product";
         String driverClass = "org.h2.Driver";
         String username = "opsmaster";
         String password = "masterdatasource";

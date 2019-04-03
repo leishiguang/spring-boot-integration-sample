@@ -11,3 +11,18 @@ spring:
 logging:
   file: ./logs/ops-log.log
 
+debug: false
+
+## 需要刻意暴露的配置项、是否加密
+property:
+  items:
+    - name: server.port
+      command: 服务的端口号
+    - name: spring.profiles.active
+      command: 测试环境配置为（dev）、生产环境配置为（product）
+    - name: ops.work.bdck.database.url
+      command: bdck的数据库ip与端口（如：127.0.0.1:1521）
+      encrypt: true
+    - name: ops.work.bdck.database.password
+      command: bdck的数据库密码（如：password）
+      encrypt: true

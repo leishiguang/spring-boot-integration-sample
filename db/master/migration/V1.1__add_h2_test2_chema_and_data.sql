@@ -4,3 +4,4 @@
 
 
 insert into city (name, state, country) values ('RoutGo', 'CB', 'US');
+insert into city (name, state, country) values ('Rout1Go', 'CB1', 'U1S');

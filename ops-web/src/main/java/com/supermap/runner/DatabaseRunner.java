@@ -17,15 +17,15 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @Component
 @Order(value = 1)
-public class DatabaseCommandRunner implements CommandLineRunner {
+public class DatabaseRunner implements CommandLineRunner {
 
     private final Flyway masterFlyway;
 
-    @Value("${spring.profiles.active}")
-    private String debugType;
+    @Value("#{ ('dev' eq '${spring.profiles.active}') && '${debug}'}")
+    private boolean isDebug;
 
     @Autowired
-    public DatabaseCommandRunner(Flyway masterFlyway) {
+    public DatabaseRunner(Flyway masterFlyway) {
         this.masterFlyway = masterFlyway;
     }
 
@@ -38,20 +38,20 @@ public class DatabaseCommandRunner implements CommandLineRunner {
      * 初始化 master 数据库
      */
     private void initMasterDataBase()throws FlywayException{
-        log.debug("开始：master 数据源自动升级 ---------");
+        log.debug("开始：master 数据库自动升级 ----------------");
         try{
             masterFlyway.migrate();
         }catch (FlywayException flywayException){
-            if("dev".equals(debugType)){
-                log.warn("初始化 master 数据库失败，正在重试。");
+            if(isDebug){
+                log.warn("重试：master 数据库自动升级 ----------------");
                 masterFlyway.clean();
                 masterFlyway.migrate();
-                log.warn("已完成 master 数据库的重新初始化。");
+                log.warn("已完成：master 数据库重新初始化 -----------!");
             }else {
                 log.error("数据库迁移文件与生产环境不匹配且无法自动完成升级",flywayException);
                 throw flywayException;
             }
         }
-        log.info("已完成：master 数据源初始化 ---------!");
+        log.info("已完成：master 数据库自动升级 -------------!");
     }
 }

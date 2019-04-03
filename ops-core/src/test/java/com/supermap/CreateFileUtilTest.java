@@ -24,7 +24,7 @@ public class CreateFileUtilTest {
     public void createFileTest() {
         //创建目录
         String dirName = "D:/temp";
-        File tmpfile = new File(dirName);
+        File tmpfile = new File(dirName + "/");
         if (tmpfile.exists()) {
             assertTrue(CreateFileUtil.deleteDir(tmpfile));
         }
@@ -35,12 +35,13 @@ public class CreateFileUtilTest {
         //创建临时文件
         String prefix = "temp";
         String suffix = ".txt";
-        String tmpDirName = dirName + "/";
-        for (int i = 0; i < 10; i++) {
+        String tmpDirName = tmpfile.getAbsolutePath();
+        int times = 10;
+        for (int i = 0; i < times; i++) {
             assertNotNull(CreateFileUtil.createTempFile(prefix, suffix, tmpDirName));
         }
         //在默认目录下创建临时文件
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < times; i++) {
             assertNotNull(CreateFileUtil.createTempFile(prefix, suffix, null));
         }
         assertTrue(CreateFileUtil.deleteDir(tmpfile));

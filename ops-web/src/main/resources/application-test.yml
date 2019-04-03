@@ -32,7 +32,7 @@ property:
     - name: server.port
       command: 服务的端口号
     - name: spring.profiles.active
-      command: 测试环境配置为（dev）、生产环境配置为（product）
+      command: 测试环境配置为（test）、生产环境配置为（product）
     - name: ops.work.bdck.database.url
       command: bdck的数据库ip、端口、实例（如：127.0.0.1:1521/orcl）
       encrypt: true

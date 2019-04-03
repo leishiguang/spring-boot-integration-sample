@@ -31,7 +31,7 @@ import static org.junit.Assert.*;
 @Slf4j
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = Application.class)
-public class ApplicationTest {
+public class JasyptEncryptableTest {
 
     @Autowired
     ApplicationContext appCtx;

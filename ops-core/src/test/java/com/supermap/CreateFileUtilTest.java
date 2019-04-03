@@ -6,6 +6,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.io.File;
+
+import static org.junit.Assert.*;
+
 /**
  * 测试文件创建
  *
@@ -19,22 +23,26 @@ public class CreateFileUtilTest {
     @Test
     public void createFileTest() {
         //创建目录
-        String dirName = "D:/work/temp/temp0/temp1";
-        CreateFileUtil.createDir(dirName);
+        String dirName = "D:/temp";
+        File tmpfile = new File(dirName);
+        if (tmpfile.exists()) {
+            assertTrue(CreateFileUtil.deleteDir(tmpfile));
+        }
+        assertTrue(CreateFileUtil.createDir(dirName));
         //创建文件
-        String fileName = dirName + "/temp2/tempFile.txt";
-        CreateFileUtil.createFile(fileName);
+        String fileName = dirName + "/temp0/temp1/temp2/tempFile.txt";
+        assertTrue(CreateFileUtil.createFile(fileName));
         //创建临时文件
         String prefix = "temp";
         String suffix = ".txt";
+        String tmpDirName = dirName + "/";
         for (int i = 0; i < 10; i++) {
-            log.error("创建了临时文件："
-                    + CreateFileUtil.createTempFile(prefix, suffix, dirName));
+            assertNotNull(CreateFileUtil.createTempFile(prefix, suffix, tmpDirName));
         }
         //在默认目录下创建临时文件
         for (int i = 0; i < 10; i++) {
-            log.error("在默认目录下创建了临时文件："
-                    + CreateFileUtil.createTempFile(prefix, suffix, null));
+            assertNotNull(CreateFileUtil.createTempFile(prefix, suffix, null));
         }
+        assertTrue(CreateFileUtil.deleteDir(tmpfile));
     }
 }

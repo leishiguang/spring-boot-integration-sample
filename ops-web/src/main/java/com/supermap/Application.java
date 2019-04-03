@@ -6,6 +6,12 @@ import org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
+/**
+ * OPS 运维工具启动类
+ *
+ * @author supermap
+ * @date 2019/03/01
+ */
 @EnableWebMvc
 @SpringBootApplication(exclude = {
         DataSourceAutoConfiguration.class,

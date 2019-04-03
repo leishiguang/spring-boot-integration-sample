@@ -1,6 +1,5 @@
 package com.supermap.aspect;
 
-
 import com.supermap.annotation.Hello;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.*;
@@ -10,33 +9,36 @@ import java.lang.reflect.Method;
 
 /**
  * 注解切入
+ *
+ * @author leishiguang
+ * @date 2019/03/15
  */
 @Aspect
 public class HelloAnnotationAspect {
 
 
     @Pointcut("@annotation(com.supermap.annotation.Hello)")
-    public void pointCut(){
+    public void pointCut() {
 
     }
 
     @Before("pointCut()")
-    public void beforeParam(JoinPoint jp){
-        System.out.println("before...type:"+getType(jp) + ".....name:"+getName(jp));
+    public void beforeParam(JoinPoint jp) {
+        System.out.println("before...type:" + getType(jp) + ".....name:" + getName(jp));
     }
 
     @After("pointCut()")
-    public void after(){
+    public void after() {
         System.out.println("after ......");
     }
 
     @AfterReturning("pointCut()")
-    public void afterReturning(){
+    public void afterReturning() {
         System.out.println("afterReturning ......");
     }
 
     @AfterThrowing("pointCut()")
-    public void afterThrowing(){
+    public void afterThrowing() {
         System.out.println("afterThrowing ......");
     }
 

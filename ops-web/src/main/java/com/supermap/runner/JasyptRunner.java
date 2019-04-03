@@ -22,6 +22,9 @@ import java.util.Set;
 
 /**
  * 对未加密的一些关键配置进行自动加密
+ *
+ * @author leishiguang
+ * @date 2019/4/3
  */
 @Slf4j
 @Component

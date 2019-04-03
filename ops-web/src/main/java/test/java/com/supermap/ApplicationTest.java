@@ -21,6 +21,12 @@ import java.util.Properties;
 
 import static org.junit.Assert.*;
 
+/**
+ * 测试类
+ *
+ * @author leishiguang
+ * @date 2019/04/03
+ */
 @Slf4j
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = Application.class)

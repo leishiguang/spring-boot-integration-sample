@@ -9,6 +9,12 @@ import org.jasypt.encryption.pbe.config.SimpleStringPBEConfig;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * 加密服务相关配置类
+ *
+ * @author leishiguang
+ * @date 2019/04/03
+ */
 @Slf4j
 @Configuration
 @EnableEncryptableProperties

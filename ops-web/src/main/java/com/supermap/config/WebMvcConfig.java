@@ -4,6 +4,12 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
+/**
+ * WebMvc 配置类
+ *
+ * @author leishiguang
+ * @date 2019/04/03
+ */
 @Configuration
 public class WebMvcConfig extends WebMvcConfigurationSupport {
 

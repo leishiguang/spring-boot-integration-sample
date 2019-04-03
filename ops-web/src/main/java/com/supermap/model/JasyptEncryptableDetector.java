@@ -5,6 +5,9 @@ import lombok.Data;
 
 /**
  * 自定义密文前后的关键词
+ *
+ * @author leishiguang
+ * @date 2019/04/03
  */
 @Data
 public class JasyptEncryptableDetector implements EncryptablePropertyDetector {

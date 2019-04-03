@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * AOP 模板
+ *
+ * @author leishiguang
+ * @date 2019/03/15
  */
 @Controller
 @RequestMapping("/hello")
@@ -26,7 +29,7 @@ public class HelloContorller {
      */
     @RequestMapping("/say")
     @ResponseBody
-    public String say(String name){
+    public String say(String name) {
         helloService.sayHello(name);
         return "success";
     }
@@ -36,8 +39,8 @@ public class HelloContorller {
      */
     @RequestMapping("/world")
     @ResponseBody
-    @Hello(name = "world",type = Hello.Hello_TYPE.ADD)
-    public String world(){
+    @Hello(name = "world", type = Hello.Hello_TYPE.ADD)
+    public String world() {
         return "siccess";
     }
 }

@@ -7,6 +7,9 @@ import org.springframework.stereotype.Component;
 
 /**
  * 工具类：根据name、class获取bean对象
+ *
+ * @author leishiguang
+ * @date 2019/03/15
  */
 @Component
 public class SpringUtil implements ApplicationContextAware {

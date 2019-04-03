@@ -10,9 +10,12 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 
+
 /**
- * Spring-boot 启动之后，程序自动运行，用于启动后的初始化。
- * 本例，初始化数据库
+ * 初始化数据库，Spring-boot 启动之后，程序自动运行
+ *
+ * @author leishiguang
+ * @date 2019/03/15
  */
 @Slf4j
 @Component

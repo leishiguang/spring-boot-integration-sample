@@ -6,26 +6,29 @@ import org.aspectj.lang.annotation.*;
 
 /**
  * AOP 模板，在方法上切入
+ *
+ * @author leishiguang
+ * @date 2019/03/15
  */
 @Aspect
 public class HelloMethodAspect {
 
     @Pointcut("execution(* com.supermap.service.impl.HelloServiceImpl.sayHello(..))")
-    public void pointCut(){
+    public void pointCut() {
 
     }
 
     @Before("pointCut() && args(name)")
-    public void beforeParam(JoinPoint jp, String name){
+    public void beforeParam(JoinPoint jp, String name) {
         Object[] args = jp.getArgs();
-        if(args != null){
+        if (args != null) {
             System.out.println("Args[0]...." + args[0]);
         }
         System.out.println("before ......" + name);
     }
 
     @After("pointCut()")
-    public void after(){
+    public void after() {
         System.out.println("after ......");
     }
 
@@ -33,7 +36,7 @@ public class HelloMethodAspect {
      * 注意这儿的 around before 会优先于 before 执行
      */
     @Around("pointCut()")
-    public Object around(ProceedingJoinPoint jp) throws Throwable{
+    public Object around(ProceedingJoinPoint jp) throws Throwable {
         System.out.println("around before......");
         jp.proceed();
         System.out.println("around after......");
@@ -41,12 +44,12 @@ public class HelloMethodAspect {
     }
 
     @AfterReturning("pointCut()")
-    public void afterReturning(){
+    public void afterReturning() {
         System.out.println("afterReturning ......");
     }
 
     @AfterThrowing("pointCut()")
-    public void afterThrowing(){
+    public void afterThrowing() {
         System.out.println("afterThrowing ......");
     }
 }

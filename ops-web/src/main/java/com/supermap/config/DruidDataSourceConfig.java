@@ -9,6 +9,12 @@ import org.springframework.context.annotation.Configuration;
 
 import java.sql.SQLException;
 
+/**
+ * DruidDataSource ,数据库连接池配置类
+ *
+ * @author leishiguang
+ * @date 2019/03/15
+ */
 @Slf4j
 @Configuration
 public class DruidDataSourceConfig {
@@ -74,9 +80,6 @@ public class DruidDataSourceConfig {
         druidDataSource.setPoolPreparedStatements(true);
         druidDataSource.setMaxPoolPreparedStatementPerConnectionSize(50);
         druidDataSource.setRemoveAbandoned(true);
-        //通过connectProperties属性来打开mergeSql功能；慢SQL记录
-        //druidDataSource.setConnectProperties(this.connectionProperties);
-        //合并多个DruidDataSource的监控数据
         druidDataSource.setUseGlobalDataSourceStat(true);
         try {
             //配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙

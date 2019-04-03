@@ -7,7 +7,10 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 /**
- * 需要刻意暴露的配置项、是否加密
+ * 需要对运维人员暴露的配置项集合
+ *
+ * @author leishiguang
+ * @date 2019/04/03
  */
 @Data
 @Component

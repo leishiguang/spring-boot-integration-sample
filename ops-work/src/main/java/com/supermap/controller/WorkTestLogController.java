@@ -5,6 +5,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+/**
+ * WorkTestController 测试日志的一些
+ *
+ * @author leishiguang
+ * @date 2019/03/15
+ */
 @Controller
 @RequestMapping("/worktest")
 @Slf4j

@@ -13,8 +13,12 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 
 import javax.sql.DataSource;
 
+
 /**
- * 运维工具 master 数据源的配置类
+ * Mybatis master 配置类
+ *
+ * @author leishiguang
+ * @date 2019/04/03
  */
 @Configuration
 @MapperScan(basePackages = "com.supermap.mapper.master", sqlSessionFactoryRef = "masterSqlSessionFactory")
@@ -32,9 +36,10 @@ public class MybatisMasterConfig {
      */
     @Bean("masterSqlSessionFactory")
     public SqlSessionFactory masterSqlSessionFactory() throws Exception {
-        //log.debug("开始装载 mastSqlSessionFactory");
+
         SqlSessionFactoryBean factoryBean = new SqlSessionFactoryBean();
-        factoryBean.setDataSource(masterDataSource); // 设置数据源
+        // 设置数据源
+        factoryBean.setDataSource(masterDataSource);
         factoryBean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:mapper/*.xml"));
         return factoryBean.getObject();
     }

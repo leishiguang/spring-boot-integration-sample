@@ -6,7 +6,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * flyway 的配置类，使用 masterDataSource 的url、username、password；
+ * flyway （数据库迁移）配置类
+ *
+ * @author leishiguang
+ * @date 2019/03/15
  */
 @Configuration
 @AutoConfigureAfter({DruidDataSourceConfig.class,MybatisMasterConfig.class})

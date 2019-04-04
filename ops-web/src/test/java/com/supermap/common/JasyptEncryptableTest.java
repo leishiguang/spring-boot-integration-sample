@@ -1,4 +1,4 @@
-package test.java.com.supermap;
+package com.supermap.common;
 
 import com.supermap.Application;
 import com.supermap.model.JasyptEncryptableDetector;

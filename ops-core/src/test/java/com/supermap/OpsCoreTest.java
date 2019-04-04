@@ -1,5 +1,6 @@
 package com.supermap;
 
+import com.supermap.util.CreateFileUtilTest;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 

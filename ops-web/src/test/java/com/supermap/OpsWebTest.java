@@ -1,8 +1,8 @@
 package com.supermap;
 
+import com.supermap.common.JasyptEncryptableTest;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
-import test.java.com.supermap.JasyptEncryptableTest;
 
 /**
  * 打包测试所有测试类
@@ -12,8 +12,7 @@ import test.java.com.supermap.JasyptEncryptableTest;
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-        OpsCoreTest.class,
         JasyptEncryptableTest.class
 })
-public class ApplicationTest {
+public class OpsWebTest {
 }

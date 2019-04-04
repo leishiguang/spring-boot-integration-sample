@@ -71,6 +71,8 @@ public class JasyptRunner implements CommandLineRunner {
             fillExistItem(configProp);
             writeBackFile(appPropertiesResource);
         }
+        //help GC
+        propertyItems = null;
         log.info("已完成：配置文件加密检查 ------------------!");
     }
 

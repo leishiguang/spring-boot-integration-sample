@@ -39,11 +39,12 @@
 
 1、开发环境
 
-从根目录 pom.xml 导入 Maven 包，通过 ops-web 子包中的 Application 即启动项目。
+- 从根目录 pom.xml 导入 Maven 包，通过 ops-web 子包中的 Application 即启动项目。
 
-2、生产环境
+2、打包后运行在生产环境
 
-双击根目录脚本 starup-生产.bat 或者 starup-测试.bat 启动本项目。
+- 从 maven root 工程执行 package 即可完成打包，将会在 ops-web 的 target 目录生成 operations-box-20190404-012820.jar 文件
+- 使用 java -jar 命令启动，或者双击根目录脚本 starup.bat 启动本项目。
 
 ## 测试说明
 

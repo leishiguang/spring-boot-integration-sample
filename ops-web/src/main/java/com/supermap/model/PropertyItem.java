@@ -27,13 +27,13 @@ public class PropertyItem {
      */
     private boolean encrypt;
 
-    public PropertyItem(){
-
-    }
-
-    public PropertyItem(String key, String value){
+    /**
+     * 初始化 name 、key
+     */
+    public PropertyItem edit(String key, String value) {
         this.name = key;
         this.value = value;
         this.command = key;
+        return this;
     }
 }

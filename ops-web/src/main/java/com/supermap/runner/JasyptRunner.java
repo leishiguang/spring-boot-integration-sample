@@ -3,6 +3,7 @@ package com.supermap.runner;
 import com.supermap.model.JasyptEncryptableDetector;
 import com.supermap.model.PropertyItem;
 import com.supermap.model.PropertyItems;
+import com.supermap.model.YamlPropertySourceFactory;
 import com.supermap.util.CreateFileUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.jasypt.encryption.StringEncryptor;
@@ -10,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.annotation.Order;
 import org.springframework.core.env.Environment;
 import org.springframework.core.io.FileSystemResource;
@@ -20,6 +22,7 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.Date;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Properties;
 
 
@@ -37,10 +40,31 @@ public class JasyptRunner implements CommandLineRunner {
     @Value("#{ ('dev' eq '${spring.profiles.active}') && '${debug}'}")
     private boolean isDebug;
 
+    @Value("${ops.version}")
+    private String projectVersion;
+
+    @Value("${selfcustom}")
+    private String object;
+
+    @Value("${self.hello}")
+    private String object2;
+
+    @Value("${property.hello}")
+    private String object3;
+
+    @Value("${property.self.name}")
+    private String object4;
+
+/*
+    @Value("${property}")
+    private Object object5;
+*/
+
     /**
      * 读取配置中的文件
      */
     private PropertyItems propertyItems;
+
     private final StringEncryptor encryptor;
     private final JasyptEncryptableDetector detector;
     private final ApplicationContext appCtx;
@@ -108,6 +132,9 @@ public class JasyptRunner implements CommandLineRunner {
         if (propertyItems.isNeedUpdate()) {
             return true;
         }
+        if (propertyItems.getItems() == null) {
+            return false;
+        }
         //开始检查配置，是否需要更新
         for (PropertyItem item : propertyItems.getItems()) {
             item.setValue(configProp.getProperty(item.getName()));
@@ -133,7 +160,7 @@ public class JasyptRunner implements CommandLineRunner {
             key = iterator.next();
             value = configProp.getProperty(key);
             if (value != null && !"".equals(value)) {
-                propertyItems.getItems().add(new PropertyItem(key, value));
+                propertyItems.getItems().add(new PropertyItem().edit(key, value));
             }
         }
     }

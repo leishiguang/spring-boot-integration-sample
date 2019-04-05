@@ -1,17 +1,14 @@
 package com.supermap.runner;
 
-import com.supermap.model.JasyptEncryptableDetector;
-import com.supermap.model.PropertyItem;
-import com.supermap.model.PropertyItems;
-import com.supermap.model.YamlPropertySourceFactory;
+import com.supermap.aide.JabotEncryptDetector;
+import com.supermap.aide.PropertyItem;
+import com.supermap.aide.PropertyItems;
 import com.supermap.util.CreateFileUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.jasypt.encryption.StringEncryptor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.annotation.Order;
 import org.springframework.core.env.Environment;
 import org.springframework.core.io.FileSystemResource;
@@ -22,7 +19,6 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.Date;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Properties;
 
 
@@ -34,31 +30,9 @@ import java.util.Properties;
  */
 @Slf4j
 @Component
-@Order(value = 2)
+@Order(value = 21)
 public class JasyptRunner implements CommandLineRunner {
 
-    @Value("#{ ('dev' eq '${spring.profiles.active}') && '${debug}'}")
-    private boolean isDebug;
-
-    @Value("${ops.version}")
-    private String projectVersion;
-
-    @Value("${selfcustom}")
-    private String object;
-
-    @Value("${self.hello}")
-    private String object2;
-
-    @Value("${property.hello}")
-    private String object3;
-
-    @Value("${property.self.name}")
-    private String object4;
-
-/*
-    @Value("${property}")
-    private Object object5;
-*/
 
     /**
      * 读取配置中的文件
@@ -66,11 +40,11 @@ public class JasyptRunner implements CommandLineRunner {
     private PropertyItems propertyItems;
 
     private final StringEncryptor encryptor;
-    private final JasyptEncryptableDetector detector;
+    private final JabotEncryptDetector detector;
     private final ApplicationContext appCtx;
 
     @Autowired
-    public JasyptRunner(StringEncryptor encryptor, JasyptEncryptableDetector encryptablePropertyDetector, PropertyItems propertyItem, ApplicationContext appCtx) {
+    public JasyptRunner(StringEncryptor encryptor, JabotEncryptDetector encryptablePropertyDetector, PropertyItems propertyItem, ApplicationContext appCtx) {
         this.encryptor = encryptor;
         this.detector = encryptablePropertyDetector;
         this.propertyItems = propertyItem;

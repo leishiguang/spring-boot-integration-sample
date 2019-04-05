@@ -10,7 +10,6 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 
-
 /**
  * 初始化数据库，Spring-boot 启动之后，程序自动运行
  *
@@ -19,7 +18,7 @@ import org.springframework.stereotype.Component;
  */
 @Slf4j
 @Component
-@Order(value = 1)
+@Order(value = 20)
 public class DatabaseRunner implements CommandLineRunner {
 
     private final Flyway masterFlyway;

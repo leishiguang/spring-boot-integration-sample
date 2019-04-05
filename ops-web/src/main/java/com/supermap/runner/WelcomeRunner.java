@@ -1,6 +1,10 @@
 package com.supermap.runner;
 
+import com.supermap.aide.MavenEnvironment;
+import com.supermap.aide.RuntimeConst;
+import com.supermap.aide.RuntimeEnvironment;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
@@ -20,17 +24,24 @@ public class WelcomeRunner implements CommandLineRunner {
     @Value("${server.port}")
     private String serverPort;
 
-    @Value("#{ ('dev' eq '${spring.profiles.active}') && '${debug}'}")
-    private boolean isDebug;
-
     @Value("${spring.profiles.active}")
     private String environmentType;
 
+    private final MavenEnvironment mavenEnvironment;
+    private final RuntimeEnvironment runtimeEnvironment;
+
+    @Autowired
+    public WelcomeRunner(MavenEnvironment mavenEnvironment, RuntimeEnvironment runtimeEnvironment) {
+        this.mavenEnvironment = mavenEnvironment;
+        this.runtimeEnvironment = runtimeEnvironment;
+    }
+
     @Override
     public void run(String... args){
-        if(isDebug){
+        if (RuntimeConst.Profiles.dev == runtimeEnvironment.getProfiles()) {
             log.info("开启：调试模式 ----------------------------!");
         }
-        log.info("启动完成，当前环境：{}，端口号：{}",environmentType,serverPort);
+        log.info("启动完成，当前版本：{}，环境：{}，端口号：{}", mavenEnvironment.getProjectVersion(), environmentType, serverPort);
+        log.info("欢迎你，{}.{}", runtimeEnvironment.getComputerName(), runtimeEnvironment.getUserName());
     }
 }

@@ -1,4 +1,4 @@
-package com.supermap.model;
+package com.supermap.aide;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

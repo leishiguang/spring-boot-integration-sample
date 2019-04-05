@@ -1,16 +1,16 @@
-package com.supermap.model;
+package com.supermap.aide;
 
 import com.ulisesbocchio.jasyptspringboot.EncryptablePropertyDetector;
 import lombok.Data;
 
 /**
- * 自定义密文前后的关键词
+ * 自定义密文服务类，包含密文前后的关键词
  *
  * @author leishiguang
  * @date 2019/04/03
  */
 @Data
-public class JasyptEncryptableDetector implements EncryptablePropertyDetector {
+public class JabotEncryptDetector implements EncryptablePropertyDetector {
     /**
      * 密文前缀
      */

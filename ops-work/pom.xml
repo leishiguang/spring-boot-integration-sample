@@ -7,7 +7,7 @@
     <!-- 基本信息 -->
     <!--<groupId>com.supermap</groupId>-->
     <artifactId>ops-work</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>${parent.version}</version>
     <packaging>jar</packaging>
     <name>ops-work</name>
 
@@ -15,7 +15,7 @@
     <parent>
         <artifactId>opsbox</artifactId>
         <groupId>com.supermap</groupId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>0.1.1-beta</version>
         <!--<relativePath>../pom.xml</relativePath>-->
     </parent>
     <properties>

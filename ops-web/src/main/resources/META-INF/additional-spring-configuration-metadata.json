@@ -12,7 +12,7 @@
     },
     {
       "name": "property",
-      "type": "com.supermap.model.PropertyItems",
+      "type": "com.supermap.aide.PropertyItems",
       "description": "要暴露给运维人员的可配置项."
     }
   ] }

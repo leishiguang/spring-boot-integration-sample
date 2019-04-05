@@ -7,7 +7,7 @@
     <name>opsbox</name>
     <groupId>com.supermap</groupId>
     <artifactId>opsbox</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.1.1-beta</version>
     <packaging>pom</packaging>
     <description>Tool of operating and support</description>
 
@@ -27,10 +27,11 @@
         <relativePath/>
     </parent>
 
-    <!-- 指定 JDK 版本，默认为 1.6-->
+    <!-- 指定 JDK 版本，如不指定，默认将为 1.6-->
     <properties>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
+        <resource.delimiter>@</resource.delimiter>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.target>${java.version}</maven.compiler.target>

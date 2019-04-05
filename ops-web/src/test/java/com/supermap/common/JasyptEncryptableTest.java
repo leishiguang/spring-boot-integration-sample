@@ -1,9 +1,9 @@
 package com.supermap.common;
 
 import com.supermap.Application;
-import com.supermap.model.JasyptEncryptableDetector;
-import com.supermap.model.PropertyItem;
-import com.supermap.model.PropertyItems;
+import com.supermap.aide.JabotEncryptDetector;
+import com.supermap.aide.PropertyItem;
+import com.supermap.aide.PropertyItems;
 import lombok.extern.slf4j.Slf4j;
 import org.jasypt.encryption.StringEncryptor;
 import org.junit.BeforeClass;
@@ -43,7 +43,7 @@ public class JasyptEncryptableTest {
     PropertyItems propertyItem;
 
     @Autowired
-    JasyptEncryptableDetector detector;
+    JabotEncryptDetector detector;
 
     /**
      * 注入原始文件资源

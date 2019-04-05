@@ -1,6 +1,6 @@
 package com.supermap.config;
 
-import com.supermap.model.JasyptEncryptableDetector;
+import com.supermap.aide.JabotEncryptDetector;
 import com.ulisesbocchio.jasyptspringboot.annotation.EnableEncryptableProperties;
 import lombok.extern.slf4j.Slf4j;
 import org.jasypt.encryption.StringEncryptor;
@@ -43,8 +43,8 @@ public class JasyptConfig {
      * 自定义密文前后的关键词，bean 的名称应当采用默认配置
      */
     @Bean(name = "encryptablePropertyDetector")
-    public JasyptEncryptableDetector encryptablePropertyDetector() {
-        return new JasyptEncryptableDetector();
+    public JabotEncryptDetector encryptablePropertyDetector() {
+        return new JabotEncryptDetector();
     }
 
     /**

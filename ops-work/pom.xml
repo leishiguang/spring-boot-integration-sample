@@ -18,4 +18,12 @@
         <version>0.0.1-SNAPSHOT</version>
         <!--<relativePath>../pom.xml</relativePath>-->
     </parent>
+    <properties>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+    </properties>
+
 </project>

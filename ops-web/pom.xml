@@ -7,7 +7,7 @@
     <!-- 基本信息 -->
     <!--<groupId>com.supermap</groupId>-->
     <artifactId>ops-web</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>${project.parent.version}</version>
     <packaging>jar</packaging>
     <name>ops-web</name>
 
@@ -31,12 +31,23 @@
         <dependency>
             <groupId>com.supermap</groupId>
             <artifactId>ops-work</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
-    <!--多模块打包：只需在启动类所在模块的POM文件：指定打包插件 -->
+    <properties>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <!-- 打包时加入时间戳，该时间是 UTC 时间，maven 不支持切换时区 -->
+        <maven.build.timestamp.format>yyyyMMdd-HHmmss</maven.build.timestamp.format>
+    </properties>
+
+    <!-- 多模块打包：只需在启动类所在模块的POM文件：指定打包插件 -->
     <build>
+        <!-- 打包后的jar包名称 -->
+        <finalName>operations-box-${maven.build.timestamp}</finalName>
         <plugins>
             <plugin>
                 <!--该插件主要用途：构建可执行的JAR -->

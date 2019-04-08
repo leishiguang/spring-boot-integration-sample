@@ -48,7 +48,7 @@
 
 ## 测试说明
 
-- 各模块均有对应的模块测试类，比如 ops-core 的 com.supermap.OpsCoreTest 类，执行这些类即可完成对当前模块的测试。
+- 各模块均有对应的模块测试类，比如 ops-core 的 com.supermap.core.OpsCoreTest 类，执行这些类即可完成对当前模块的测试。
 
 ## 更新说明
 

@@ -1,7 +1,9 @@
-package com.supermap.util;
+package com.supermap.core.util;
 
+import com.supermap.util.CreateFileUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -17,9 +19,11 @@ import static org.junit.Assert.*;
  */
 @Slf4j
 @RunWith(SpringJUnit4ClassRunner.class)
+@DisplayName("asdf")
 public class CreateFileUtilTest {
 
     @Test
+    @DisplayName(value = "asdf")
     public void createFileTest() {
         //创建目录
         String dirName = "D:/temp";

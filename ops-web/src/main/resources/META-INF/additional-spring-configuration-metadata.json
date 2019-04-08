@@ -14,5 +14,10 @@
       "name": "property",
       "type": "com.supermap.aide.PropertyItems",
       "description": "要暴露给运维人员的可配置项."
+    },
+    {
+      "name": "mv",
+      "type": "com.supermap.aide.MavenEnvironment",
+      "description": "编译时候的环境."
     }
   ] }

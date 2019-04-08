@@ -1,6 +1,6 @@
-package com.supermap;
+package com.supermap.web;
 
-import com.supermap.common.JasyptEncryptableTest;
+import com.supermap.web.JasyptEncryptableTest;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 

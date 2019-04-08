@@ -1,4 +1,4 @@
-package com.supermap.common;
+package com.supermap.web;
 
 import com.supermap.Application;
 import com.supermap.aide.JabotEncryptDetector;

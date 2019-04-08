@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 /**
- * 需要对运维人员暴露的配置项集合，从 property 配置中自动装配
+ * 需要对运维人员暴露的配置项集合，从 application-common.yml 配置的 property 中自动装配
  *
  * @author leishiguang
  * @date 2019/04/03

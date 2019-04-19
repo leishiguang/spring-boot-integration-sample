@@ -1,14 +1,16 @@
 package com.supermap.core.util;
 
 import com.supermap.util.CreateFileUtil;
-import lombok.extern.slf4j.Slf4j;
-import org.junit.Test;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.junit.platform.runner.JUnitPlatform;
 import org.junit.runner.RunWith;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.io.File;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 /**
  * 测试文件创建
@@ -17,12 +19,13 @@ import static org.junit.Assert.*;
  * @version v1.0.0
  * @since v1.0
  */
-@Slf4j
-@RunWith(SpringJUnit4ClassRunner.class)
-public class CreateFileUtilTest {
+@RunWith(JUnitPlatform.class)
+@DisplayName("文件创建工具类")
+class CreateFileUtilTest {
 
     @Test
-    public void createFileTest() {
+    @DisplayName("创建文件")
+    void createFileTest() {
         //创建目录
         String dirName = "D:/temp";
         File tmpfile = new File(dirName + "/");

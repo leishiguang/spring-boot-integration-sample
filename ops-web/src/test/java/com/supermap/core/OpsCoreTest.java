@@ -1,10 +1,9 @@
 package com.supermap.core;
 
-import com.supermap.core.util.CreateFileUtilTest;
-import com.supermap.core.util.SpringUtilTest;
-import com.supermap.util.SpringUtil;
+import org.junit.platform.runner.JUnitPlatform;
+import org.junit.platform.suite.api.SelectPackages;
+import org.junit.platform.suite.api.SuiteDisplayName;
 import org.junit.runner.RunWith;
-import org.junit.runners.Suite;
 
 /**
  * OpsCore 的测试
@@ -13,10 +12,8 @@ import org.junit.runners.Suite;
  * @version v1.0.0
  * @since v1.0
  */
-@RunWith(Suite.class)
-@Suite.SuiteClasses({
-        CreateFileUtilTest.class,
-        SpringUtilTest.class
-})
-public class OpsCoreTest {
+@RunWith(JUnitPlatform.class)
+@SuiteDisplayName("OpsCore测试")
+@SelectPackages("com.supermap.core")
+class OpsCoreTest {
 }

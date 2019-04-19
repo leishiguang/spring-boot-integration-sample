@@ -1,13 +1,13 @@
-package com.supermap.web;
+package com.supermap.web.config;
 
-import com.supermap.Application;
 import com.supermap.aide.JabotEncryptDetector;
 import com.supermap.aide.PropertyItem;
 import com.supermap.aide.PropertyItems;
-import lombok.extern.slf4j.Slf4j;
 import org.jasypt.encryption.StringEncryptor;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.junit.platform.runner.JUnitPlatform;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -15,24 +15,24 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.core.env.Environment;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.io.InputStream;
 import java.util.Properties;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
- * 测试类
+ * 测试加密服务
  * 
  * @author leishiguang
  * @version v1.0.0
  * @since v1.0
  */
-@Slf4j
-@RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest(classes = Application.class)
-public class JasyptEncryptableTest {
+@RunWith(JUnitPlatform.class)
+@SpringBootTest
+@DisplayName("加密服务类")
+class JasyptEncryptableTest {
 
     @Autowired
     ApplicationContext appCtx;
@@ -53,27 +53,23 @@ public class JasyptEncryptableTest {
 
     private Properties configProp;
 
-    @BeforeClass
-    public static void beforeClass() {
+    @BeforeAll
+    static void beforeClass() {
         appPropertiesFile = new FileSystemResource("config/application.properties");
     }
 
-    /**
-     * 加密方式不应当发生变化
-     */
     @Test
-    public void encryptorMethodNotChangeTest() {
+    @DisplayName("加密方式不应当发生变化")
+    void encryptorMethodNotChangeTest() {
         String encryptedText = "xX548GDIMYGWWTlS0RNcGM8rvF1r7RSy";
         assertEquals("127.0.0.1:1521", encryptor.decrypt(encryptedText));
         encryptedText = "twodHADutmbh1Heq3ZM/AF6gCOyntdVx";
         assertEquals("password", encryptor.decrypt(encryptedText));
     }
 
-    /**
-     * 配置文件应当完成加密
-     */
     @Test
-    public void encryptorPropertiesTest() throws Exception {
+    @DisplayName("配置文件应当完成加密")
+    void encryptorPropertiesTest() throws Exception {
         Environment env = appCtx.getEnvironment();
         String name, value;
         for (PropertyItem item : propertyItem.getItems()) {

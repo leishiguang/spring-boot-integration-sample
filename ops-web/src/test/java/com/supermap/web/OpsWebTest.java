@@ -1,7 +1,9 @@
 package com.supermap.web;
 
+import org.junit.platform.runner.JUnitPlatform;
+import org.junit.platform.suite.api.SelectPackages;
+import org.junit.platform.suite.api.SuiteDisplayName;
 import org.junit.runner.RunWith;
-import org.junit.runners.Suite;
 
 /**
  * 打包测试所有测试类
@@ -10,9 +12,8 @@ import org.junit.runners.Suite;
  * @version v1.0.0
  * @since v1.0
  */
-@RunWith(Suite.class)
-@Suite.SuiteClasses({
-        JasyptEncryptableTest.class
-})
-public class OpsWebTest {
+@RunWith(JUnitPlatform.class)
+@SuiteDisplayName("OpsWeb测试")
+@SelectPackages("com.supermap.web")
+class OpsWebTest {
 }

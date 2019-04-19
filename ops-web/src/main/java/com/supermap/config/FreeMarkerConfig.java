@@ -11,11 +11,13 @@ import org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver;
 import java.io.IOException;
 import java.util.Properties;
 
+
 /**
  * FreeMarker 配置类
  *
  * @author leishiguang
- * @date 2019/03/15
+ * @version v1.0.0
+ * @since v1.0
  */
 @Configuration
 public class FreeMarkerConfig {

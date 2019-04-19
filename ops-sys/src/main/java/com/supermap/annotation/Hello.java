@@ -6,7 +6,8 @@ import java.lang.annotation.*;
  * 测试 AOP 注解
  *
  * @author leishiguang
- * @date 2019/03/15
+ * @version v1.0.0
+ * @since v1.0
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.METHOD})

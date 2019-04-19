@@ -21,12 +21,12 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.Properties;
 
-
 /**
  * 对未加密的一些关键配置进行自动加密
  *
  * @author leishiguang
- * @date 2019/4/3
+ * @version v1.0.0
+ * @since v1.0
  */
 @Slf4j
 @Component

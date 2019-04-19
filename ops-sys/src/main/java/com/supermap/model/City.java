@@ -6,7 +6,8 @@ import lombok.Data;
  * City
  *
  * @author leishiguang
- * @date 2019/03/10
+ * @version v1.0.0
+ * @since v1.0
  */
 @Data
 public class City {

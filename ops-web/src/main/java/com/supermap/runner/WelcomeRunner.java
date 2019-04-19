@@ -14,7 +14,8 @@ import org.springframework.stereotype.Component;
  * 展示一些欢迎信息，或是增加版本号……
  *
  * @author leishiguang
- * @date 2019/03/15
+ * @version v1.0.0
+ * @since v1.0
  */
 @Slf4j
 @Component

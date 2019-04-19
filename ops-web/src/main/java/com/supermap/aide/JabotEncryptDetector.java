@@ -7,7 +7,8 @@ import lombok.Data;
  * 自定义密文服务类，包含密文前后的关键词
  *
  * @author leishiguang
- * @date 2019/04/03
+ * @version v1.0.0
+ * @since v1.0
  */
 @Data
 public class JabotEncryptDetector implements EncryptablePropertyDetector {
@@ -38,10 +39,10 @@ public class JabotEncryptDetector implements EncryptablePropertyDetector {
     /**
      * 返回格式化的加密值
      */
-    public String wrapEncryptedValue(String unwrapdEncryptedValue){
-        if(isEncrypted(unwrapdEncryptedValue)){
+    public String wrapEncryptedValue(String unwrapdEncryptedValue) {
+        if (isEncrypted(unwrapdEncryptedValue)) {
             return unwrapdEncryptedValue;
-        }else {
+        } else {
             return PREFIX + unwrapdEncryptedValue + SUFFIX;
         }
     }

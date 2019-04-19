@@ -12,7 +12,8 @@ import java.util.List;
  * 配置文件的 YamlPropertySourceFactory 工厂实现，用于读取自定义 yaml 文件
  *
  * @author leishiguang
- * @date 2019/04/05
+ * @version v1.0.0
+ * @since v1.0
  */
 public class YamlPropertySourceFactory extends DefaultPropertySourceFactory {
 

@@ -7,11 +7,13 @@ import org.springframework.stereotype.Component;
 
 import java.util.Map;
 
+
 /**
  * 系统运行时候的属性
  *
  * @author leishiguang
- * @date 2019/04/05
+ * @version v1.0.0
+ * @since v1.0
  */
 @Getter
 @ToString

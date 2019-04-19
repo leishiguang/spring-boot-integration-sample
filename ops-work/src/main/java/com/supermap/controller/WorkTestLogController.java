@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * WorkTestController 测试日志的一些
  *
  * @author leishiguang
- * @date 2019/03/15
+ * @version v1.0.0
+ * @since v1.0
  */
 @Controller
 @RequestMapping("/worktest")

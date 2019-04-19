@@ -11,7 +11,8 @@ import org.springframework.stereotype.Repository;
  * City Mapper 接口
  *
  * @author leishiguang
- * @date 2019/03/10
+ * @version v1.0.0
+ * @since v1.0
  */
 @Mapper
 @Repository

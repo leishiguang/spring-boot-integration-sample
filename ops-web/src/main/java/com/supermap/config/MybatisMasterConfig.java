@@ -18,7 +18,8 @@ import javax.sql.DataSource;
  * Mybatis master 配置类
  *
  * @author leishiguang
- * @date 2019/04/03
+ * @version v1.0.0
+ * @since v1.0
  */
 @Configuration
 @MapperScan(basePackages = "com.supermap.mapper.master", sqlSessionFactoryRef = "masterSqlSessionFactory")

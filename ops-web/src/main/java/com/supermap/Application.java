@@ -9,8 +9,9 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 /**
  * OPS 运维工具启动类
  *
- * @author supermap
- * @date 2019/03/01
+ * @author leishiguang
+ * @version v1.0.0
+ * @since v1.0
  */
 @EnableWebMvc
 @SpringBootApplication(exclude = {

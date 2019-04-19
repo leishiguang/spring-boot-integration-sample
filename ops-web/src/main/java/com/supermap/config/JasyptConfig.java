@@ -13,7 +13,8 @@ import org.springframework.context.annotation.Configuration;
  * 加密服务相关配置类
  *
  * @author leishiguang
- * @date 2019/04/03
+ * @version v1.0.0
+ * @since v1.0
  */
 @Slf4j
 @Configuration

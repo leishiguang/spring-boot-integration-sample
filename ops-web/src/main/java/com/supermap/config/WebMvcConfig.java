@@ -8,7 +8,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
  * WebMvc 配置类
  *
  * @author leishiguang
- * @date 2019/04/03
+ * @version v1.0.0
+ * @since v1.0
  */
 @Configuration
 public class WebMvcConfig extends WebMvcConfigurationSupport {

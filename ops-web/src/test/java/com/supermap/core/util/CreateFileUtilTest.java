@@ -3,7 +3,6 @@ package com.supermap.core.util;
 import com.supermap.util.CreateFileUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -15,15 +14,14 @@ import static org.junit.Assert.*;
  * 测试文件创建
  *
  * @author leishiguang
- * @date 2019/04/03
+ * @version v1.0.0
+ * @since v1.0
  */
 @Slf4j
 @RunWith(SpringJUnit4ClassRunner.class)
-@DisplayName("asdf")
 public class CreateFileUtilTest {
 
     @Test
-    @DisplayName(value = "asdf")
     public void createFileTest() {
         //创建目录
         String dirName = "D:/temp";

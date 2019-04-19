@@ -9,7 +9,8 @@ import org.springframework.context.annotation.Configuration;
  * flyway （数据库迁移）配置类
  *
  * @author leishiguang
- * @date 2019/03/15
+ * @version v1.0.0
+ * @since v1.0
  */
 @Configuration
 @AutoConfigureAfter({DruidDataSourceConfig.class,MybatisMasterConfig.class})

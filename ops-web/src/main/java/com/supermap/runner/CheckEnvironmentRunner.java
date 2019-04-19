@@ -12,7 +12,8 @@ import org.springframework.stereotype.Component;
  * 检查打包时的环境与运行时的环境
  *
  * @author leishiguang
- * @date 2019/04/05
+ * @version v1.0.0
+ * @since v1.0
  */
 @Slf4j
 @Component

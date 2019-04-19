@@ -10,7 +10,8 @@ import org.springframework.context.annotation.Configuration;
  * 关于Aop的案例
  *
  * @author leishiguang
- * @date 2019/03/15
+ * @version v1.0.0
+ * @since v1.0
  */
 @Configuration
 public class HelloAopConfig {

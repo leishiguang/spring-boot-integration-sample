@@ -10,7 +10,8 @@ import org.junit.runners.Suite;
  * OpsCore 的测试
  *
  * @author leishiguang
- * @date 2019/04/03
+ * @version v1.0.0
+ * @since v1.0
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses({

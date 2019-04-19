@@ -4,7 +4,8 @@ package com.supermap.aide;
  * 运行时常量
  *
  * @author leishiguang
- * @date 2019/04/05
+ * @version v1.0.0
+ * @since v1.0
  */
 public class RuntimeConst {
     public enum Profiles {

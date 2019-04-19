@@ -24,9 +24,10 @@ import static org.junit.Assert.*;
 
 /**
  * 测试类
- *
+ * 
  * @author leishiguang
- * @date 2019/04/03
+ * @version v1.0.0
+ * @since v1.0
  */
 @Slf4j
 @RunWith(SpringJUnit4ClassRunner.class)

@@ -6,7 +6,8 @@ import lombok.Data;
  * 需要对运维人员暴露的配置项
  *
  * @author leishiguang
- * @date 2019/04/03
+ * @version v1.0.0
+ * @since v1.0
  */
 @Data
 public class PropertyItem {

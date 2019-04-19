@@ -11,7 +11,8 @@ import java.lang.reflect.Method;
  * 注解切入
  *
  * @author leishiguang
- * @date 2019/03/15
+ * @version v1.0.0
+ * @since v1.0
  */
 @Aspect
 public class HelloAnnotationAspect {

@@ -7,6 +7,7 @@ import org.jasypt.encryption.StringEncryptor;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 import org.junit.platform.runner.JUnitPlatform;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @RunWith(JUnitPlatform.class)
 @SpringBootTest
 @DisplayName("加密服务类")
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class JasyptEncryptableTest {
 
     @Autowired
@@ -49,12 +51,12 @@ class JasyptEncryptableTest {
     /**
      * 注入原始文件资源
      */
-    private static Resource appPropertiesFile;
+    private Resource appPropertiesFile;
 
     private Properties configProp;
 
     @BeforeAll
-    static void beforeClass() {
+    void beforeClass() {
         appPropertiesFile = new FileSystemResource("config/application.properties");
     }
 

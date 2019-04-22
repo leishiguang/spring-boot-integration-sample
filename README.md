@@ -52,6 +52,7 @@
 
 - 比如 ops-core 的 com.supermap.core.OpsCoreTest 类；
 - 比如 ops-web 的 com.supermap.web.OpsWebTest 类；
+- 比如 ops-sys 的 com.supermap.sys.OpsSysTest 类；
 
 ## 更新说明
 

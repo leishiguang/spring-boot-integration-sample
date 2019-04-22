@@ -1,7 +1,7 @@
 package com.supermap.controller;
 
 import com.supermap.mapper.master.CityMapper;
-import com.supermap.model.City;
+import com.supermap.model.CityEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -65,8 +65,8 @@ public class SysTestController {
     @RequestMapping("/dbtest")
     @ResponseBody
     public String dbTest() {
-        City city1 = cityMapper.findByState("CA");
-        City city3 = cityMapper.selectCityById(1);
+        CityEntity city1 = cityMapper.findByState("CA");
+        CityEntity city3 = cityMapper.selectCityById(1);
         return city1.getCountry() + "," + city3.getCountry();
     }
 

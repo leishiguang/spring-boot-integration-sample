@@ -1,6 +1,7 @@
 package com.supermap.mapper.master;
 
-import com.supermap.model.City;
+import com.supermap.base.BaseCustomMapper;
+import com.supermap.model.CityEntity;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -8,7 +9,7 @@ import org.springframework.stereotype.Repository;
 
 
 /**
- * City Mapper 接口
+ * CityEntity Mapper 接口
  *
  * @author leishiguang
  * @version v1.0.0
@@ -16,22 +17,21 @@ import org.springframework.stereotype.Repository;
  */
 @Mapper
 @Repository
-public interface CityMapper {
+public interface CityMapper extends BaseCustomMapper<CityEntity> {
 
     /**
      * 注解方式查询
      * @param state state
-     * @return City
+     * @return CityEntity
      */
     @Select("select * from city where state = #{state}")
-    City findByState(@Param("state") String state);
-
+    CityEntity findByState(@Param("state") String state);
 
     /**
      * mapper 方式查询
      * @param cityId cityId
-     * @return City
+     * @return CityEntity
      */
-    City selectCityById(int cityId);
+    CityEntity selectCityById(Integer cityId);
 
 }

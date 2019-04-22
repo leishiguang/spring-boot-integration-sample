@@ -38,11 +38,11 @@ public class WelcomeRunner implements CommandLineRunner {
     }
 
     @Override
-    public void run(String... args){
+    public void run(String... args) {
         if (RuntimeConst.Profiles.dev == runtimeEnvironment.getProfiles()) {
             log.info("开启：调试模式 ----------------------------!");
         }
         log.info("启动完成，当前版本：{}，环境：{}，端口号：{}", mavenEnvironment.getProjectVersion(), environmentType, serverPort);
-        log.info("欢迎你，{}.{}", runtimeEnvironment.getComputerName(), runtimeEnvironment.getUserName());
+        log.info("欢迎你，{}@{}", runtimeEnvironment.getUserName(), runtimeEnvironment.getComputerName());
     }
 }

@@ -18,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * Service 层基础CRUD
  *
  * @author leishiguang
- * @version v1.0
+ * @version v1.0.0
  * @since v1.0
  */
 @RunWith(JUnitPlatform.class)

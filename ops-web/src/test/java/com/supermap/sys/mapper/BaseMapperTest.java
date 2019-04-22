@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * 基础 CRUD 的 Dao 层测试
  *
  * @author leishiguang
- * @version v1.0
+ * @version v1.0.0
  * @since v1.0
  */
 @RunWith(JUnitPlatform.class)

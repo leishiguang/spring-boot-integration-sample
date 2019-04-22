@@ -6,21 +6,19 @@ import com.supermap.base.BaseService;
 import java.util.List;
 
 /**
- * 基础 Service 实现类
+ * 基础 Service 实现类。将通用的 Dao 层方法开放给 Service 层
  *
  * @author leishiguang
- * @version v1.0
+ * @version v1.0.0
  * @since v1.0
  */
 public abstract class BaseServiceImpl<T> implements BaseService<T>, BaseCustomMapper<T> {
 
     /**
      * 获取 BaseMapper
-     *
-     * @return baseCustomMapper
+     * @return Mapper 返回每个 Entity 对应的 Mapper
      */
     protected abstract BaseCustomMapper<T> getMapper();
-
 
     @Override
     public int deleteByPrimaryKey(Object o) {
@@ -81,4 +79,5 @@ public abstract class BaseServiceImpl<T> implements BaseService<T>, BaseCustomMa
     public int updateByPrimaryKeySelective(T t) {
         return getMapper().updateByPrimaryKeySelective(t);
     }
+
 }

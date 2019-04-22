@@ -15,7 +15,7 @@
     <parent>
         <artifactId>opsbox</artifactId>
         <groupId>com.supermap</groupId>
-        <version>0.1.1-beta</version>
+        <version>1.0.0-beta</version>
         <!--<relativePath>../pom.xml</relativePath>-->
     </parent>
     <properties>

@@ -20,8 +20,7 @@ import org.springframework.core.io.Resource;
 import java.io.InputStream;
 import java.util.Properties;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * 测试加密服务

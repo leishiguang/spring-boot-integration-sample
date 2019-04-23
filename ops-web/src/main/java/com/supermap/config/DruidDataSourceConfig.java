@@ -1,12 +1,15 @@
 package com.supermap.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
+import com.supermap.util.StringUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.FileSystemResource;
+import org.springframework.util.StringUtils;
+
 import java.sql.SQLException;
 
 /**
@@ -68,7 +71,7 @@ public class DruidDataSourceConfig {
         druidDataSource.setUsername("bdck");
         druidDataSource.setPassword(bdckDatabasePassword);
         druidDataSource.setDriverClassName("oracle.jdbc.driver.OracleDriver");
-        druidDataSource.setName("bdckDataSource");
+        druidDataSource.setName(StringUtil.generateDbName("bdck", url));
         return druidDataSource;
     }
 
@@ -108,20 +111,6 @@ public class DruidDataSourceConfig {
         return druidDataSource;
     }
 
-    /**
-     * 获取数据源的名称：[传入name]@[结尾ip]/[实例名]
-     * 如：
-     * 1、url为cdserver:1521:testa，数据库名称为bdck@cdserver/testa
-     * 2、url为127.0.0.1:testa，数据库名称为bdck@1/testa
-     */
-    private String generateDbName(String prefix, String url) {
-        StringBuilder result = new StringBuilder();
-        result.append(prefix);
-
-        String[] a = url.split(":");
-
-        return result.toString();
-    }
 
 
 }

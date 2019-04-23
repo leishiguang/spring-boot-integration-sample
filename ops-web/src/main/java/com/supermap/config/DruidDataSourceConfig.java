@@ -55,18 +55,20 @@ public class DruidDataSourceConfig {
         druidDataSource.setUsername(username);
         druidDataSource.setPassword(password);
         druidDataSource.setDriverClassName(driverClass);
+        druidDataSource.setName("masterDataSource");
         return druidDataSource;
     }
 
     @Bean(name = "bdckDataSource")
     @Qualifier("bdckDataSource")
     public DruidDataSource bdckDataSource() {
-        String url = "jdbc..."+bdckDatabaseUrl;
+        String url = "jdbc:oracle:thin:@" + bdckDatabaseUrl;
         DruidDataSource druidDataSource = this.initDefaultDruidDataSource();
         druidDataSource.setUrl(url);
         druidDataSource.setUsername("bdck");
         druidDataSource.setPassword(bdckDatabasePassword);
-        druidDataSource.setDriverClassName("driverclass");
+        druidDataSource.setDriverClassName("oracle.jdbc.driver.OracleDriver");
+        druidDataSource.setName("bdckDataSource");
         return druidDataSource;
     }
 
@@ -104,6 +106,21 @@ public class DruidDataSourceConfig {
             log.error("druid configuration initialization filter", e);
         }
         return druidDataSource;
+    }
+
+    /**
+     * 获取数据源的名称：[传入name]@[结尾ip]/[实例名]
+     * 如：
+     * 1、url为cdserver:1521:testa，数据库名称为bdck@cdserver/testa
+     * 2、url为127.0.0.1:testa，数据库名称为bdck@1/testa
+     */
+    private String generateDbName(String prefix, String url) {
+        StringBuilder result = new StringBuilder();
+        result.append(prefix);
+
+        String[] a = url.split(":");
+
+        return result.toString();
     }
 
 

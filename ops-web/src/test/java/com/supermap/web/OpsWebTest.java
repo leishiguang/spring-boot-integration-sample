@@ -6,7 +6,7 @@ import org.junit.platform.suite.api.SuiteDisplayName;
 import org.junit.runner.RunWith;
 
 /**
- * 打包测试所有测试类
+ * 打包测试所有测试类(OpsWeb)
  *
  * @author leishiguang
  * @version v1.0.0

@@ -6,7 +6,7 @@ import org.junit.platform.suite.api.SuiteDisplayName;
 import org.junit.runner.RunWith;
 
 /**
- * OpsSys 的打包测试
+ * 打包测试所有测试类(OpsSys)
  *
  * @author leishiguang
  * @version v1.0.0

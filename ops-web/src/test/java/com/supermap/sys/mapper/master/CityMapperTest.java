@@ -22,7 +22,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @RunWith(JUnitPlatform.class)
 @SpringBootTest
 @DisplayName("CityMapper")
-class CityEntityMapperTest {
+class CityMapperTest {
 
     @Autowired
     CityMapper cityMapper;

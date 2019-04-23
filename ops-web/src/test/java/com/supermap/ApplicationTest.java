@@ -5,7 +5,7 @@ import org.junit.platform.suite.api.SelectPackages;
 import org.junit.runner.RunWith;
 
 /**
- * 所有方法的测试入口
+ * 打包测试所有测试类(com.supermap)
  *
  * @author leishiguang
  * @version v1.0.0

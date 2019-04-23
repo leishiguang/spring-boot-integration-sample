@@ -8,7 +8,7 @@ property:
     - name: spring.profiles.active
       command: 测试环境配置为（test）、生产环境配置为（product）
     - name: ops.work.bdck.database.url
-      command: bdck的数据库ip、端口、实例（如：127.0.0.1:1521/orcl）
+      command: bdck的数据库ip:端口:实例（如：127.0.0.1:1521:orcl）
       encrypt: true
     - name: ops.work.bdck.database.password
       command: bdck的数据库密码（如：password）

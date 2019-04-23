@@ -42,7 +42,7 @@
         <junit.platform.version>1.2.0</junit.platform.version>
         <tk.mybatis.mapper.version>2.1.1</tk.mybatis.mapper.version>
         <pagehelper.version>5.0.3</pagehelper.version>
-
+        <ojdbc.version>6</ojdbc.version>
     </properties>
 
     <!-- 指定项目中公用的依赖 -->
@@ -157,6 +157,12 @@
             <artifactId>h2</artifactId>
             <version>${h2.version}</version>
             <scope>runtime</scope>
+        </dependency>
+        <!-- oracle jdbc -->
+        <dependency>
+            <groupId>com.oracle</groupId>
+            <artifactId>ojdbc</artifactId>
+            <version>${ojdbc.version}</version>
         </dependency>
         <!-- 数据库迁移 -->
         <dependency>

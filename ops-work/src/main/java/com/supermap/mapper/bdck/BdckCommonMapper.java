@@ -16,6 +16,7 @@ import java.util.List;
 @Mapper
 @Repository
 public interface BdckCommonMapper {
+
     /**
      * 用完整 sql 查询 数据
      *

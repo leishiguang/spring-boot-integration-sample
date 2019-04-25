@@ -1,6 +1,5 @@
 package com.supermap;
 
-import com.supermap.util.StringUtil;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.platform.runner.JUnitPlatform;
